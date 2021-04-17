@@ -9,6 +9,7 @@
       |
       <router-link to="/logout">Logout</router-link>
       |
+      <router-link to="/signup">Create Profile</router-link>
     </div>
     <router-view />
   </div>
