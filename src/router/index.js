@@ -4,6 +4,8 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Signup from "../views/Signup.vue";
+import SchoolShow from "../views/SchoolShow.vue";
+import SchoolIndex from "../views/SchoolIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +26,8 @@ const routes = [
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
   { path: "/signup", name: "signup", component: Signup },
+  { path: "/school/:id", name: "schoolshow", component: SchoolShow},
+  { path: "/school", name: "schoolindex", component: SchoolIndex},
 ];
 
 const router = new VueRouter({

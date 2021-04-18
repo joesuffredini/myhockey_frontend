@@ -5,11 +5,13 @@
       |
       <router-link to="/about">About</router-link>
       |
+      <router-link to="/signup">Create Profile</router-link>
+      |
       <router-link to="/login">Log in</router-link>
       |
       <router-link to="/logout">Logout</router-link>
       |
-      <router-link to="/signup">Create Profile</router-link>
+      <router-link to="/school">School List</router-link>
     </div>
     <router-view />
   </div>
