@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <form v-on:submit.prevent="submit()">
-      <h1>Create Profile</h1>
+      <h1>Create your account</h1>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
           {{ error }}

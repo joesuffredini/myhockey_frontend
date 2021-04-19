@@ -6,6 +6,11 @@ import Logout from "../views/Logout.vue";
 import Signup from "../views/Signup.vue";
 import SchoolShow from "../views/SchoolShow.vue";
 import SchoolIndex from "../views/SchoolIndex.vue";
+import UserIndex from "../views/UserIndex.vue";
+import UserShow from "../views/UserShow.vue";
+import RecruitIndex from "../views/RecruitIndex.vue";
+import RecruitShow from "../views/RecruitShow.vue";
+
 
 Vue.use(VueRouter);
 
@@ -28,6 +33,10 @@ const routes = [
   { path: "/signup", name: "signup", component: Signup },
   { path: "/school/:id", name: "schoolshow", component: SchoolShow},
   { path: "/school", name: "schoolindex", component: SchoolIndex},
+  { path: "/user", name: "userindex", component: UserIndex},
+  { path: "/user/:id", name: "usershow", component: UserShow},
+  { path: "/recruit", name: "recruitindex", component: RecruitIndex},
+  { path: "/recruit/:id", name: "recruitshow", component: RecruitShow},
 ];
 
 const router = new VueRouter({
