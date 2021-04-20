@@ -4,8 +4,20 @@
       <h2>{{ school.name }}</h2>
       <h3>Location: {{ school.location }}</h3>
       <h3>Nickname: {{ school.nickname }}</h3>
+      <h3>Conference: {{ school.conference }}</h3>
+      <h3>School Rink: {{ school.rink }}</h3>
+      <h3>Head_Coach: {{ school.head_coach }}</h3>
+      <h3>Contact Info: {{ school.email }}</h3>
     </div>
-    <router-link v-bind:to="`/school/${school.id}/edit`">See recruit list</router-link>
+    <router-link v-bind:to="`/school/${school.id}/edit`">
+      See recruit list"
+
+      <h3>{{ school.recruits_player }}</h3>
+      <h3>{{ school.recruits_position }}</h3>
+      <h3>{{ school.recruits_height }}</h3>
+      <h3>{{ school.recruits_weight }}</h3>
+      <h3>{{ school.recruits_year }}</h3>
+    </router-link>
     <!-- <br />
     <br />
     <button v-on:click="destroySchool(school)">Destroy School</button> -->

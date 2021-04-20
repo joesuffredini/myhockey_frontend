@@ -3,8 +3,6 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link to="/about">About</router-link>
-      |
       <router-link to="/signup">Create an Account</router-link>
       |
       <router-link to="/login">Log in</router-link>
@@ -15,7 +13,7 @@
       |
       <router-link to="/recruit">Recruits List</router-link>
       |
-      <router-link to="/user">Recruiting Profile</router-link>
+      <router-link to="/user">My Profile</router-link>
     </div>
     <router-view />
   </div>
