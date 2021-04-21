@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-body">
             <router-link v-bind:to="`recruit/${recruit.id}`">
-              <h3>{{ recruit.school.name }}</h3>
+              <h3>{{ recruit.school }}</h3>
             </router-link>
           </div>
         </div>

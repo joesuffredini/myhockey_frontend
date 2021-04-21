@@ -6,12 +6,6 @@
           <div class="card-body">
             <router-link v-bind:to="`school/${school.id}`">
               <h2>{{ school.name }}</h2>
-              <!-- <h3>{{ school.recruits_player }}</h3>
-              <h3>{{ school.recruits_position }}</h3>
-              <h3>{{ school.recruits_height }}</h3>
-              <h3>{{ school.recruits_weight }}</h3>
-              <h3>{{ school.recruits_year }}</h3> -->
-
               <p></p>
             </router-link>
           </div>

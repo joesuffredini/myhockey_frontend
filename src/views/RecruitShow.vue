@@ -1,9 +1,15 @@
 <template>
   <div class="Recruitshow">
     <div class="container">
-      <h3>Player: {{ recruit.player }}</h3>
+      <h3>School: {{ recruit.player }}</h3>
       <h3>Position: {{ recruit.position }}</h3>
       <h3>Recruit Year: {{ recruit.year }}</h3>
+
+      <h3>{{ school.recruits_player }}</h3>
+    <h3>{{ school.recruits_position }}</h3>
+    <h3>{{ school.recruits_height }}</h3>
+    <h3>{{ school.recruits_weight }}</h3>
+    <h3>{{ school.recruits_year }}</h3>
     </div>
     <router-link v-bind:to="`/recruit/${recruit.id}/edit`">See recruit list</router-link>
     <!-- <br />

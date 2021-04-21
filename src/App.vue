@@ -9,9 +9,7 @@
       |
       <router-link to="/logout">Logout</router-link>
       |
-      <router-link to="/school">School List</router-link>
-      |
-      <router-link to="/recruit">Recruits List</router-link>
+      <router-link to="/school">Schools</router-link>
       |
       <router-link to="/user">My Profile</router-link>
     </div>
