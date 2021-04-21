@@ -2,6 +2,7 @@
   <div class="schoolshow">
     <div class="container">
       <h2>{{ school.name }}</h2>
+      <img v-bind:src="school.image" v-bind:alt="school.name" />
       <h3>Location: {{ school.location }}</h3>
       <h3>Nickname: {{ school.nickname }}</h3>
       <h3>Conference: {{ school.conference }}</h3>
