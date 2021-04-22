@@ -1,11 +1,11 @@
 <template>
-  <div class="recruitinfo-create">
+  <div class="schoolselection-create">
     <ul>
       <li class="text-danger" v-for="error in errors" v-bind:key="error">
         {{ error }}
       </li>
     </ul>
-    <form v-on:submit.prevent="createRecruitInfo()">
+    <form v-on:submit.prevent="createSchoolSelection()">
       <div class="form-group">
         <label>User</label>
         <select class="form-control" v-model="user">
@@ -42,7 +42,7 @@ export default {
     this.indexUsers();
   },
   methods: {
-    createRecruitInfo: function () {
+    createSchoolSelection: function () {
       let params = {
         school: this.school,
         user: this.user,
@@ -50,7 +50,7 @@ export default {
       axios
         .post("/api/recruitinfo", params)
         .then(() => {
-          console.log("Creating a Recruit Profile");
+          console.log("Creating a Profile");
           this.$router.push("/");
         })
         .catch((errors) => console.log(errors.response));

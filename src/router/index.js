@@ -8,9 +8,9 @@ import SchoolShow from "../views/SchoolShow.vue";
 import SchoolIndex from "../views/SchoolIndex.vue";
 import UserIndex from "../views/UserIndex.vue";
 import UserShow from "../views/UserShow.vue";
-import RecruitIndex from "../views/RecruitIndex.vue";
 import RecruitShow from "../views/RecruitShow.vue";
-import RecruitInfoCreate from "../views/RecruitInfoCreate.vue";
+import RecruitIndex from "../views/RecruitIndex.vue";
+import SchoolSelection from "../views/SchoolSelection.vue";
 
 
 Vue.use(VueRouter);
@@ -36,9 +36,9 @@ const routes = [
   { path: "/school", name: "schoolindex", component: SchoolIndex},
   { path: "/user", name: "userindex", component: UserIndex},
   { path: "/user/:id", name: "usershow", component: UserShow},
-  { path: "/recruit", name: "recruitindex", component: RecruitIndex},
   { path: "/recruit/:id", name: "recruitshow", component: RecruitShow},
-  { path: "/recruitinfo", name: "recruitinfocreate", component: RecruitInfoCreate},
+  { path: "/recruit", name: "recruitindex", component: RecruitIndex},
+  { path: "/schoolselection", name: "schoolselectioncreate", component: SchoolSelection},
 ];
 
 const router = new VueRouter({

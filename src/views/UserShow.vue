@@ -13,10 +13,14 @@
       <h3>Current Coach: {{ user.coach }}</h3>
       <h3>Email: {{ user.email }}</h3>
     </div>
-    <!-- <router-link v-bind:to="`/user/${user.id}/edit`">See my recruiting profile</router-link> -->
-    <!-- <br />
-    <br />
-    <button v-on:click="destroySchool(school)">Destroy School</button> -->
+    <button v-on:click="showSchools()">View Schools Selected</button>
+    <dialog id="school-info">
+      <form method="dialog">
+        <h1>Recruits:</h1>
+        <h3>Schools: {{ user.schools }}</h3>
+        <button>Close</button>
+      </form>
+    </dialog>
   </div>
 </template>
 
@@ -38,6 +42,11 @@ export default {
         this.user = response.data;
       });
     },
+
+    showSchools: function () {
+      document.querySelector("#school-info").showModal();
+    },
+
     destroyUser: function (user) {
       axios.delete("/api/user/" + user.id).then(() => {
         console.log("User destroyed");

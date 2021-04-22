@@ -1,11 +1,14 @@
 <template>
-  <div class="recruitindex">
+  <div class="Recruitindex">
     <div class="row">
       <div class="col-sm-6" v-for="recruit in recruits" v-bind:key="recruit.id">
         <div class="card">
           <div class="card-body">
             <router-link v-bind:to="`recruit/${recruit.id}`">
-              <h3>{{ recruit.school }}</h3>
+              <p1>{{ recruit.school }}: {{ recruit.player }}</p1>
+              <br />
+              <!-- <p1>{{ recruit.player }}</p1> -->
+              <p></p>
             </router-link>
           </div>
         </div>

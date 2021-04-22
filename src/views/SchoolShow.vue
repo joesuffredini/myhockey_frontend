@@ -17,7 +17,7 @@
       <form method="dialog">
         <h1>Recruits:</h1>
         <h2>{{ school.name }}</h2>
-        <h3>Name: {{ school.recruits_players }}</h3>
+        <h3>Name: {{ school.recruits_player }}</h3>
         <h3>Position: {{ school.recruits_position }}</h3>
         <h3>Height: {{ school.recruits_height }}</h3>
         <h3>Weight:{{ school.recruits_weight }}</h3>
