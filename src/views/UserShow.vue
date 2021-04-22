@@ -1,14 +1,19 @@
 <template>
   <div class="usershow">
     <div class="container">
-      <h2>{{ user.name }}</h2>
-      <h3>{{ user.position }}</h3>
-      <h3>{{ user.team }}</h3>
-      <h3>{{ user.school }}</h3>
-      <h3>{{ user.recruit }}</h3>
-      -->
+      <h2>Name: {{ user.name }}</h2>
+      <h3>Position: {{ user.position }}</h3>
+      <h3>City: {{ user.city }}</h3>
+      <h3>State: {{ user.state }}</h3>
+      <h3>BD: {{ user.birthdate }}</h3>
+      <h3>Height: {{ user.height }}</h3>
+      <h3>Weight: {{ user.weight }}</h3>
+      <h3>Position: {{ user.position }}</h3>
+      <h3>Shoots: {{ user.shoots }}</h3>
+      <h3>Current Coach: {{ user.coach }}</h3>
+      <h3>Email: {{ user.email }}</h3>
     </div>
-    <router-link v-bind:to="`/user/${user.id}/edit`">See my recruiting profile</router-link>
+    <!-- <router-link v-bind:to="`/user/${user.id}/edit`">See my recruiting profile</router-link> -->
     <!-- <br />
     <br />
     <button v-on:click="destroySchool(school)">Destroy School</button> -->

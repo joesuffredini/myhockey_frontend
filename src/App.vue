@@ -11,7 +11,9 @@
       |
       <router-link to="/school">Schools</router-link>
       |
-      <router-link to="/user">My Profile</router-link>
+      <router-link to="/user">User Profile</router-link>
+      |
+      <router-link to="/recruitinfo">School Selections</router-link>
     </div>
     <router-view />
   </div>

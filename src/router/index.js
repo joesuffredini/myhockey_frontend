@@ -10,6 +10,7 @@ import UserIndex from "../views/UserIndex.vue";
 import UserShow from "../views/UserShow.vue";
 import RecruitIndex from "../views/RecruitIndex.vue";
 import RecruitShow from "../views/RecruitShow.vue";
+import RecruitInfoCreate from "../views/RecruitInfoCreate.vue";
 
 
 Vue.use(VueRouter);
@@ -37,6 +38,7 @@ const routes = [
   { path: "/user/:id", name: "usershow", component: UserShow},
   { path: "/recruit", name: "recruitindex", component: RecruitIndex},
   { path: "/recruit/:id", name: "recruitshow", component: RecruitShow},
+  { path: "/recruitinfo", name: "recruitinfocreate", component: RecruitInfoCreate},
 ];
 
 const router = new VueRouter({

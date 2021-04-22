@@ -3,12 +3,13 @@
     <div class="container">
       <h2>{{ school.name }}</h2>
       <img v-bind:src="school.image" v-bind:alt="school.name" />
-      <h3>Location: {{ school.location }}</h3>
-      <h3>Nickname: {{ school.nickname }}</h3>
-      <h3>Conference: {{ school.conference }}</h3>
-      <h3>School Rink: {{ school.rink }}</h3>
-      <h3>Head_Coach: {{ school.head_coach }}</h3>
-      <h3>Contact Info: {{ school.email }}</h3>
+      <h5>Location: {{ school.location }}</h5>
+      <h5>Nickname: {{ school.nickname }}</h5>
+      <h5>Conference: {{ school.conference }}</h5>
+      <h5>Enrollment: {{ school.enrollment }}</h5>
+      <h5>School Rink: {{ school.rink }}</h5>
+      <h5>Head_Coach: {{ school.head_coach }}</h5>
+      <h5>Contact Info: {{ school.email }}</h5>
     </div>
 
     <button v-on:click="showRecruits()">View Recruits</button>
@@ -16,7 +17,7 @@
       <form method="dialog">
         <h1>Recruits:</h1>
         <h2>{{ school.name }}</h2>
-        <h3>Name: {{ school.recruits_player }}</h3>
+        <h3>Name: {{ school.recruits_players }}</h3>
         <h3>Position: {{ school.recruits_position }}</h3>
         <h3>Height: {{ school.recruits_height }}</h3>
         <h3>Weight:{{ school.recruits_weight }}</h3>
