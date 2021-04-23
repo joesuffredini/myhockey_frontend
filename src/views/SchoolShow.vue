@@ -5,7 +5,7 @@
       <img v-bind:src="school.image" v-bind:alt="school.name" />
       <br />
       <br />
-      <a v-bind:href="school.url" v-bind:alt="school.url">School website</a>
+      <a v-bind:href="school.url" v-bind:alt="school.url">Athletic website</a>
       <h5>Location: {{ school.location }}</h5>
       <h5>Nickname: {{ school.nickname }}</h5>
       <h5>Conference: {{ school.conference }}</h5>
