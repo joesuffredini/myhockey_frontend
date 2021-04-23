@@ -22,6 +22,19 @@
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
+
+    <form method="dialog">
+      <h1>School select filters</h1>
+      <div class="form-group">
+        <label>School size (less then value):</label>
+        <input type="size" class="form-control" v-model="size" />
+      </div>
+      <div class="form-group">
+        <label>Conference(Big Ten, WCHA, NCDC, AHA, or HockeyEast):</label>
+        <input type="conf" class="form-control" v-model="conf" />
+      </div>
+      <button v-on:click="indexSchools(size, conf)">Submit</button>
+    </form>
   </div>
 </template>
 
@@ -32,6 +45,8 @@ export default {
     return {
       school: "",
       user: "",
+      size: "",
+      conf: "",
       schools: [],
       users: [],
       errors: [],
@@ -49,15 +64,20 @@ export default {
       };
       axios
         .post("/api/recruitinfo", params)
-        .then(() => {
-          console.log("Creating a Profile");
+        .then((response) => {
+          this.selection = response.data;
+          console.log("Creating a Profile", this.selection);
           this.$router.push("/");
         })
         .catch((errors) => console.log(errors.response));
     },
-    indexSchools: function () {
+    indexSchools: function (size, conf) {
       axios.get("/api/school").then((response) => {
-        this.schools = response.data;
+        var temp = response.data.filter(function (x) {
+          return x.enrollment < size && x.conference == conf;
+        });
+        this.schools = temp;
+        console.log(this.schools);
       });
     },
     indexUsers: function () {

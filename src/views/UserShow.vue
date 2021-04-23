@@ -38,8 +38,8 @@ export default {
   methods: {
     showUser: function () {
       axios.get("/api/user/" + this.$route.params.id).then((response) => {
-        console.log(response.data);
         this.user = response.data;
+        console.log(response.data);
       });
     },
 
