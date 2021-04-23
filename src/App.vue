@@ -11,11 +11,12 @@
       |
       <router-link to="/school">Schools</router-link>
       |
+      <router-link to="/recruit/">Recruits</router-link>
+      |
       <router-link to="/schoolselection">School Selections</router-link>
       |
       <router-link to="/user/:id">My Profile</router-link>
       |
-      <router-link to="/recruit/">Recruits List</router-link>
     </div>
     <router-view />
   </div>
