@@ -5,6 +5,7 @@
         <div class="card">
           <div class="card-body">
             <router-link v-bind:to="`school/${school.id}`">
+              <img v-bind:src="school.image" v-bind:alt="school.name" />
               <h2>{{ school.name }}</h2>
               <p></p>
             </router-link>

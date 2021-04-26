@@ -13,8 +13,12 @@
       <h5>School Rink: {{ school.rink }}</h5>
       <h5>Head_Coach: {{ school.head_coach }}</h5>
       <h5>Contact Info: {{ school.email }}</h5>
+      <h5>Academics: {{ school.academics }}</h5>
+      <h5>Recruit Class: {{ school.recruitclass }}</h5>
     </div>
-
+    <div>
+      <router-link v-bind:to="`/school/${school.id}/edit`" tag="button">Edit My School Attributes</router-link>
+    </div>
     <button v-on:click="showRecruits()">View Recruits</button>
     <dialog id="recruit-info">
       <form method="dialog">

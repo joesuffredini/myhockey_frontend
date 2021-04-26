@@ -7,24 +7,25 @@
     </ul>
 
     <form method="dialog">
-      <h1>School selection criteria</h1>
+      <h1>School selection filter options:</h1>
       <div class="form-group">
-        <label>School size:</label>
-        <input type="size" class="form-control" v-model="size" />
-        <!-- <option>Select School</option> -->
+        <label for="enrollment">Enrollment range:</label>
+        <input type="range" v-model="range" min="5000" max="80000" step="500" />
+        Selected: {{ range }}
       </div>
       <br />
-      <p1>Or</p1>
       <div class="form-group">
         <label>Conference:</label>
         <input type="conf" class="form-control" v-model="conf" />
       </div>
       <br />
-      <button v-on:click="indexSchools(size, conf)">Submit</button>
+
+      <button v-on:click="indexSchools(range, conf)">Submit your filters</button>
     </form>
     <br />
     <br />
     <form v-on:submit.prevent="createSchoolSelection()">
+      <h1>Select your school to add to profile</h1>
       <div class="form-group">
         <label>School</label>
         <select class="form-control" v-model="school">
@@ -33,7 +34,7 @@
         </select>
       </div>
       <br />
-      <input type="submit" class="btn btn-primary" value="Submit" />
+      <input type="submit" class="btn btn-primary" value="Submit your school for your profile" />
     </form>
   </div>
 </template>
@@ -45,8 +46,8 @@ export default {
     return {
       school: "",
       user: "",
-      size: "",
       conf: "",
+      range: "",
       schools: [],
       errors: [],
     };
@@ -65,19 +66,26 @@ export default {
         .then((response) => {
           this.selection = response.data;
           console.log("Creating a Profile", this.selection);
-          this.$router.push("/");
+          this.$router.push("/user/" + this.user_id);
         })
         .catch((errors) => console.log(errors.response));
     },
-    indexSchools: function (size, conf) {
+    indexSchools: function (range, conf) {
       axios.get("/api/school").then((response) => {
         var temp = response.data.filter(function (x) {
-          return x.enrollment < size || x.conference == conf;
+          return x.enrollment < range || (x.enrollment < range && x.conference == conf);
         });
         this.schools = temp;
         console.log(this.schools);
       });
     },
+    // filterSchoolByRange: function () {
+    //   axios.get("/api/school").then((response) => {
+    //     this.schools = response.data;
+    //     return this.schools.filter((school) => (school.enrollment > 5000 && school.enrollment < range ? school : ""));
+    //   });
+    //   console.log(this.schools);
+    // },
   },
 };
 </script>

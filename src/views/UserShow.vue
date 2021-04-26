@@ -13,10 +13,12 @@
       <h3>Current Coach: {{ user.coach }}</h3>
       <h3>Email: {{ user.email }}</h3>
     </div>
+    <div>
+      <router-link v-bind:to="`/user/${user.id}/edit`" tag="button">Edit My Profile</router-link>
+    </div>
     <button v-on:click="showSchools()">View Schools Selected</button>
     <dialog id="school-info">
       <form method="dialog">
-        <h1>Recruits:</h1>
         <h3>Schools: {{ user.schools }}</h3>
         <button>Close</button>
       </form>

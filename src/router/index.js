@@ -11,7 +11,8 @@ import UserShow from "../views/UserShow.vue";
 import RecruitShow from "../views/RecruitShow.vue";
 import RecruitIndex from "../views/RecruitIndex.vue";
 import SchoolSelection from "../views/SchoolSelection.vue";
-
+import MyprofileEdit from "../views/MyprofileEdit.vue";
+import MyschoolEdit from "../views/MyschoolEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,8 @@ const routes = [
   { path: "/recruit/:id", name: "recruitshow", component: RecruitShow},
   { path: "/recruit", name: "recruitindex", component: RecruitIndex},
   { path: "/schoolselection", name: "schoolselectioncreate", component: SchoolSelection},
+  { path: "/user/:id/edit", name: "myprofile-edit", component: MyprofileEdit},
+  { path: "/school/:id/edit", name: "myschool-edit", component: MyschoolEdit},
 ];
 
 const router = new VueRouter({
