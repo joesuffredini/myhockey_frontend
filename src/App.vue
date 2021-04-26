@@ -3,20 +3,40 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link to="/signup">Create an Account</router-link>
-      |
-      <router-link to="/login">Log in</router-link>
-      |
-      <router-link to="/logout">Logout</router-link>
-      |
-      <router-link to="/school">Schools</router-link>
-      |
-      <router-link to="/recruit">Recruits</router-link>
-      |
-      <router-link to="/schoolselection">School Selections</router-link>
-      |
-      <router-link to="/user/:id">My Profile</router-link>
-      |
+      <span v-if="!userLoggedIn()">
+        <router-link to="/signup">Create an Account</router-link>
+        |
+      </span>
+
+      <span v-if="!userLoggedIn()">
+        <router-link to="/login">Log in</router-link>
+        |
+      </span>
+
+      <span v-if="userLoggedIn()">
+        <router-link to="/user/:id">My Profile</router-link>
+        |
+      </span>
+
+      <span v-if="userLoggedIn()">
+        <router-link to="/school">Schools</router-link>
+        |
+      </span>
+
+      <span v-if="userLoggedIn()">
+        <router-link to="/recruit">Recruits</router-link>
+        |
+      </span>
+
+      <span v-if="userLoggedIn()">
+        <router-link to="/schoolselection">School Selections</router-link>
+        |
+      </span>
+
+      <span v-if="userLoggedIn()">
+        <router-link to="/logout">Logout</router-link>
+        |
+      </span>
     </div>
     <router-view />
   </div>
@@ -44,3 +64,12 @@
   color: #42b983;
 }
 </style>
+<script>
+export default {
+  methods: {
+    userLoggedIn: function () {
+      return localStorage.getItem("jwt");
+    },
+  },
+};
+</script>

@@ -28,14 +28,6 @@
         <button>Close</button>
       </form>
     </dialog>
-
-    <!-- <router-link v-bind:to="`/school/${school.id}/edit`">
-      See recruit list" -->
-
-    <!-- </router-link> -->
-    <!-- <br />
-    <br />
-    <button v-on:click="destroySchool(school)">Destroy School</button> -->
   </div>
 </template>
 
@@ -53,8 +45,8 @@ export default {
   methods: {
     showSchool: function () {
       axios.get("/api/school/" + this.$route.params.id).then((response) => {
-        console.log(response.data);
         this.school = response.data;
+        console.log(this.school);
       });
     },
     showRecruits: function () {
