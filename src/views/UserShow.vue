@@ -1,21 +1,19 @@
 <template>
   <div class="usershow">
-    <div class="container">
-      <h2>Name: {{ user.name }}</h2>
-      <h3>Position: {{ user.position }}</h3>
-      <h3>City: {{ user.city }}</h3>
-      <h3>State: {{ user.state }}</h3>
-      <h3>BD: {{ user.birthdate }}</h3>
-      <h3>Height: {{ user.height }}</h3>
-      <h3>Weight: {{ user.weight }}</h3>
-      <h3>Position: {{ user.position }}</h3>
-      <h3>Shoots: {{ user.shoots }}</h3>
-      <h3>Current Coach: {{ user.coach }}</h3>
-      <h3>Email: {{ user.email }}</h3>
-    </div>
     <div>
       <router-link v-bind:to="`/user/${user.id}/edit`" tag="button">Edit My Profile</router-link>
     </div>
+    <div class="container">
+      <h2>Name: {{ user.name }}</h2>
+      <h3>City: {{ user.city }}</h3>
+      <h3>State: {{ user.state }}</h3>
+      <h3>BD: {{ user.birthdate }}</h3>
+      <h3>Height: {{ user.height }} Weight: {{ user.weight }}</h3>
+      <h3>Position: {{ user.position }} Shoots: {{ user.shoots }}</h3>
+      <h3>Current Coach: {{ user.coach }}</h3>
+      <h3>Email: {{ user.email }}</h3>
+    </div>
+
     <button v-on:click="showSchools()">View Schools Selected</button>
     <dialog id="school-info">
       <form method="dialog">

@@ -2,24 +2,20 @@
   <div class="schoolshow">
     <div class="container">
       <h2>{{ school.name }}</h2>
-      <img v-bind:src="school.image" v-bind:alt="school.name" />
+      <img :src="school.image" :alt="school.name" width="150" height="150" />
       <br />
+      <div>
+        <router-link v-bind:to="`/school/${school.id}/edit`" tag="button">Edit School Attributes</router-link>
+      </div>
       <br />
       <a v-bind:href="school.url" v-bind:alt="school.url">Athletic website</a>
-      <h5>Location: {{ school.location }}</h5>
-      <h5>Nickname: {{ school.nickname }}</h5>
-      <h5>Conference: {{ school.conference }}</h5>
-      <h5>Enrollment: {{ school.enrollment }}</h5>
+      <h5>Location: {{ school.location }} -- Enrollment: {{ school.enrollment }}</h5>
+      <h5>Nickname: {{ school.nickname }} -- Conference: {{ school.conference }}</h5>
       <h5>School Rink: {{ school.rink }}</h5>
-      <h5>Head_Coach: {{ school.head_coach }}</h5>
-      <h5>Contact Info: {{ school.email }}</h5>
-      <h5>Academics: {{ school.academics }}</h5>
-      <h5>Recruit Class: {{ school.recruitclass }}</h5>
-      <h5>Total number of recruits: {{ total }}</h5>
+      <h5>Head_Coach: {{ school.head_coach }} -- Contact Info: {{ school.email }}</h5>
+      <h5>Number of Incoming recruits: {{ total }}</h5>
     </div>
-    <div>
-      <router-link v-bind:to="`/school/${school.id}/edit`" tag="button">Edit My School Attributes</router-link>
-    </div>
+
     <button v-on:click="showRecruits()">View Recruits</button>
     <dialog id="recruit-info">
       <form method="dialog">

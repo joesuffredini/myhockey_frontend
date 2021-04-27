@@ -7,7 +7,6 @@
             <router-link v-bind:to="`recruit/${recruit.id}`">
               <p1>{{ recruit.school }}: {{ recruit.player }}</p1>
               <br />
-              <!-- <p1>{{ recruit.player }}</p1> -->
               <p></p>
             </router-link>
           </div>
@@ -35,6 +34,7 @@ export default {
     RecruitIndex: function () {
       axios.get("/api/recruit").then((response) => {
         this.recruits = response.data;
+        this.recruits.sort((a, b) => (a.school > b.school ? 1 : -1));
         console.log("all recruits:", this.recruits);
       });
     },

@@ -5,8 +5,8 @@
         <div class="card">
           <div class="card-body">
             <router-link v-bind:to="`school/${school.id}`">
-              <img v-bind:src="school.image" v-bind:alt="school.name" />
-              <h2>{{ school.name }}</h2>
+              <img :src="school.image" :alt="school.name" width="100" height="100" />
+              <h2>{{ school.name }} {{ school.nickname }}</h2>
               <p></p>
             </router-link>
           </div>
@@ -34,6 +34,7 @@ export default {
     SchoolIndex: function () {
       axios.get("/api/school").then((response) => {
         this.schools = response.data;
+        this.schools.sort((a, b) => (a.name > b.name ? 1 : -1));
         console.log("all schools:", this.schools);
       });
     },
