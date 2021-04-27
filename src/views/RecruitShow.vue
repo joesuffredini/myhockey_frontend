@@ -7,17 +7,7 @@
       <h3>Position: {{ recruit.position }}</h3>
       <h3>DOB: {{ recruit.birthdate }}</h3>
       <h3>Recruit Year: {{ recruit.year }}</h3>
-
-      <!-- <h3>{{ school.recruits_player }}</h3>
-    <h3>{{ school.recruits_position }}</h3>
-    <h3>{{ school.recruits_height }}</h3>
-    <h3>{{ school.recruits_weight }}</h3>
-    <h3>{{ school.recruits_year }}</h3> -->
     </div>
-    <!-- <router-link v-bind:to="`/recruit/${recruit.id}/edit`">See recruit list</router-link> -->
-    <!-- <br />
-    <br />
-    <button v-on:click="destroyRecruit(recruit)">Destroy Recruit</button> -->
   </div>
 </template>
 

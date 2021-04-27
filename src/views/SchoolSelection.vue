@@ -15,12 +15,16 @@
       </div>
       <br />
       <div class="form-group">
-        <label>Conference:</label>
-        <input type="conf" class="form-control" v-model="conf" />
+        <label>Academics:</label>
+        <input type="academics" class="form-control" v-model="academics" />
       </div>
       <br />
-
-      <button v-on:click="indexSchools(range, conf)">Submit your filters</button>
+      <div class="form-group">
+        <label>Total number of recruits:</label>
+        <input type="recruittotal" class="form-control" v-model="recruittotal" />
+      </div>
+      <br />
+      <button v-on:click="indexSchools(range, academics, recruittotal)">Submit your filters</button>
     </form>
     <br />
     <br />
@@ -46,7 +50,8 @@ export default {
     return {
       school: "",
       user: "",
-      conf: "",
+      academics: "",
+      recruittotal: "",
       range: "",
       schools: [],
       errors: [],
@@ -70,22 +75,15 @@ export default {
         })
         .catch((errors) => console.log(errors.response));
     },
-    indexSchools: function (range, conf) {
+    indexSchools: function (range, recruittotal) {
       axios.get("/api/school").then((response) => {
         var temp = response.data.filter(function (x) {
-          return x.enrollment < range || (x.enrollment < range && x.conference == conf);
+          return x.enrollment < range || x.recruittotal < recruittotal;
         });
         this.schools = temp;
         console.log(this.schools);
       });
     },
-    // filterSchoolByRange: function () {
-    //   axios.get("/api/school").then((response) => {
-    //     this.schools = response.data;
-    //     return this.schools.filter((school) => (school.enrollment > 5000 && school.enrollment < range ? school : ""));
-    //   });
-    //   console.log(this.schools);
-    // },
   },
 };
 </script>

@@ -15,6 +15,7 @@
       <h5>Contact Info: {{ school.email }}</h5>
       <h5>Academics: {{ school.academics }}</h5>
       <h5>Recruit Class: {{ school.recruitclass }}</h5>
+      <h5>Total number of recruits: {{ total }}</h5>
     </div>
     <div>
       <router-link v-bind:to="`/school/${school.id}/edit`" tag="button">Edit My School Attributes</router-link>
@@ -29,6 +30,7 @@
         <h3>Height: {{ school.recruits_height }}</h3>
         <h3>Weight:{{ school.recruits_weight }}</h3>
         <h3>Recruit Year: {{ school.recruits_year }}</h3>
+
         <button>Close</button>
       </form>
     </dialog>
@@ -41,18 +43,27 @@ export default {
   data: function () {
     return {
       school: {},
+      total: "",
     };
   },
   created: function () {
     this.showSchool();
+    this.getRecruittotal();
   },
   methods: {
     showSchool: function () {
       axios.get("/api/school/" + this.$route.params.id).then((response) => {
         this.school = response.data;
-        console.log(this.school);
       });
     },
+
+    getRecruittotal: function () {
+      axios.get("/api/school/" + this.$route.params.id).then((response) => {
+        this.total = response.data.recruits_position.length;
+        console.log("Number of recruits", this.total);
+      });
+    },
+
     showRecruits: function () {
       document.querySelector("#recruit-info").showModal();
     },
