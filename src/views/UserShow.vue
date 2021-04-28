@@ -12,7 +12,6 @@
       <h3>Position: {{ user.position }} Shoots: {{ user.shoots }}</h3>
       <h3>Current Coach: {{ user.coach }}</h3>
       <h3>Email: {{ user.email }}</h3>
-      <!-- <img :src="user.test" :alt="user.image" width="150" height="150" /> -->
     </div>
 
     <!-- <div v-for="school in schools" :key="school">
@@ -32,7 +31,7 @@
     <dialog id="school-info">
       <form method="dialog">
         <div v-for="image in images" :key="image">
-          <router-link v-bind:to="`/school/`">
+          <router-link v-bind:to="`/school`">
             <img :src="image" :alt="image" width="75" height="75" />
           </router-link>
         </div>

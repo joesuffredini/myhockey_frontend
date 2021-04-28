@@ -5,7 +5,8 @@
         <div class="card">
           <div class="card-body">
             <router-link v-bind:to="`recruit/${recruit.id}`">
-              <p1>{{ recruit.school }}: {{ recruit.player }}</p1>
+              <img :src="recruit.image" :alt="recruit.name" width="50" height="50" />
+              <p1>{{ recruit.school }}: {{ recruit.player }} position:{{ recruit.position }}</p1>
               <br />
               <p></p>
             </router-link>
