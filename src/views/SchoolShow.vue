@@ -5,18 +5,14 @@
         <h2>{{ school.name }}</h2>
         <img :src="school.image" :alt="school.name" width="150" height="150" />
         <br />
-        <!-- <div>
-        <router-link v-bind:to="`/school/${school.id}/edit`" tag="button">Edit School Attributes</router-link>
-      </div> -->
-        <br />
-        <a v-bind:href="school.url" v-bind:alt="school.url">Athletic website</a>
+        <a v-bind:href="school.url" v-bind:alt="school.url"><h5>Athletic website</h5></a>
         <h5>Location: {{ school.location }} -- Enrollment: {{ school.enrollment }}</h5>
         <h5>Nickname: {{ school.nickname }} -- Conference: {{ school.conference }}</h5>
         <h5>School Rink: {{ school.rink }}</h5>
         <h5>Head_Coach: {{ school.head_coach }} -- Contact Info: {{ school.email }}</h5>
         <h5>Number of Incoming recruits: {{ total }}</h5>
       </div>
-      <button v-on:click="showRecruits()">View Recruits</button>
+      <a class="btn btn-secondary btn-xl js-scroll-trigger" v-on:click="showRecruits()">View Recruits</a>
 
       <dialog id="recruit-info">
         <form method="dialog">

@@ -1,23 +1,45 @@
 <template>
-  <div class="login">
-    <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email" />
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password" />
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
-    </form>
-  </div>
+  <section class="content-section bg-primary text-white text-center" id="services">
+    <div class="login">
+      <form v-on:submit.prevent="submit()">
+        <h1>Login</h1>
+        <ul>
+          <li class="text-danger" v-for="error in errors" v-bind:key="error">
+            {{ error }}
+          </li>
+        </ul>
+
+        <div class="mb-3 row">
+          <label for="inputEmail" class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              aria-label="Email"
+              id="inputEmail"
+              v-model="email"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              aria-label="Password"
+              id="inputPassword"
+              v-model="password"
+            />
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary btn-xl js-scroll-trigger" value="Submit" />
+      </form>
+    </div>
+  </section>
 </template>
 
 <script>
