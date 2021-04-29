@@ -1,45 +1,42 @@
 <template>
-  <div class="usershow">
-    <div>
-      <router-link v-bind:to="`/user/${user.id}/edit`" tag="button">Edit My Profile</router-link>
+  <section class="content-section bg-primary text-white text-center" id="My Profile">
+    <div class="usershow">
+      <div>
+        <router-link v-bind:to="`/user/${user.id}/edit`" class="btn btn-primary btn-xl js-scroll-trigger">
+          Edit My Profile
+        </router-link>
+      </div>
+      <div class="container">
+        <h2>Name: {{ user.name }}</h2>
+        <h3>City: {{ user.city }}</h3>
+        <h3>State: {{ user.state }}</h3>
+        <h3>BD: {{ user.birthdate }}</h3>
+        <h3>Height: {{ user.height }} Weight: {{ user.weight }}</h3>
+        <h3>Position: {{ user.position }} Shoots: {{ user.shoots }}</h3>
+        <h3>Current Coach: {{ user.coach }}</h3>
+        <h3>Email: {{ user.email }}</h3>
+      </div>
+
+      <a class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="showSchools()">View Schools Selected</a>
+      <dialog id="school-info">
+        <form method="dialog">
+          <div v-for="image in images" :key="image">
+            <router-link v-bind:to="`/school`">
+              <img :src="image" :alt="image" width="75" height="75" />
+            </router-link>
+          </div>
+          <button>Close</button>
+        </form>
+      </dialog>
     </div>
-    <div class="container">
-      <h2>Name: {{ user.name }}</h2>
-      <h3>City: {{ user.city }}</h3>
-      <h3>State: {{ user.state }}</h3>
-      <h3>BD: {{ user.birthdate }}</h3>
-      <h3>Height: {{ user.height }} Weight: {{ user.weight }}</h3>
-      <h3>Position: {{ user.position }} Shoots: {{ user.shoots }}</h3>
-      <h3>Current Coach: {{ user.coach }}</h3>
-      <h3>Email: {{ user.email }}</h3>
-    </div>
-
-    <!-- <div v-for="school in schools" :key="school">
-      <router-link v-bind:to="`user/${user.id}`">
-        <h3>MySchool: {{ school }}</h3>
-      </router-link>
-    </div> -->
-
-    <!-- <h1>My School Choices</h1>
-    <div v-for="image in images" :key="image">
-      <router-link v-bind:to="`user/${user.id}`">
-        <img :src="image" :alt="image" width="150" height="150" />
-      </router-link>
-    </div> -->
-
-    <button v-on:click="showSchools()">View Schools Selected</button>
-    <dialog id="school-info">
-      <form method="dialog">
-        <div v-for="image in images" :key="image">
-          <router-link v-bind:to="`/school`">
-            <img :src="image" :alt="image" width="75" height="75" />
-          </router-link>
-        </div>
-        <button>Close</button>
-      </form>
-    </dialog>
-  </div>
+  </section>
 </template>
+
+<style>
+/* .usershow {
+  background-color: rgb(147, 170, 177);
+} */
+</style>
 
 <script>
 import axios from "axios";

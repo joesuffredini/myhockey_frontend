@@ -51,7 +51,7 @@
         <label>Email:</label>
         <input type="text" class="form-control" v-model="user.email" />
       </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
+      <input type="submit" class="btn btn-primary btn-xl js-scroll-trigger" value="Submit" />
     </form>
   </div>
 </template>

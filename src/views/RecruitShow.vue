@@ -1,6 +1,7 @@
 <template>
-  <div class="Recruitshow">
-    <div class="container">
+  <section class="content-section bg-primmary text-black text-center" id="services">
+    <div class="Recruitshow">
+      <h3>Name: {{ recruit.player }}</h3>
       <h3>Position: {{ recruit.position }}</h3>
       <h3>Height: {{ recruit.height }}</h3>
       <h3>Weight: {{ recruit.weight }} lbs</h3>
@@ -8,7 +9,7 @@
       <h3>DOB: {{ recruit.birthdate }}</h3>
       <h3>Recruit Year: {{ recruit.year }}</h3>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

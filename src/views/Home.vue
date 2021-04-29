@@ -1,15 +1,20 @@
 <template>
-  <div class="home">
-    <h1>Welcome to the MyHockey Recruiting App</h1>
-    <h2>An app that helps youth hockey players navigate college recruiting data</h2>
-    <!-- <HelloWorld msg="Welcome to the MyHockey Recruiting App" /> -->
-    <img alt="Hockey logo" src="../assets/hockey-logo-with-sticks.png" />
+  <div class="masthead d-flex text-white">
+    <!-- <h2>Welcome to the MyHockey Recruiting App</h2>
+    <h3>An app that helps youth hockey players navigate college recruiting data</h3> -->
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Welcome to MyHockey Recruiting</h1>
+      <h3 class="mb-5">
+        <em>An app that helps youth hockey players navigate college recruiting information</em>
+      </h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="/about">Read about the details</a>
+    </div>
   </div>
 </template>
 
 <style>
 img {
-  border-radius: 5%;
+  border-radius: 25%;
 }
 </style>
 

@@ -1,69 +1,87 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <span v-if="!userLoggedIn()">
-        <router-link to="/signup">Create an Account</router-link>
-        |
-      </span>
+    <!-- Navigation -->
+    <a class="menu-toggle rounded" href="/">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="/">Home</a>
+        </li>
 
-      <span v-if="!userLoggedIn()">
-        <router-link to="/login">Log in</router-link>
-        |
-      </span>
+        <span v-if="!userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/signup">Create an Account</a>
+          </li>
+        </span>
 
-      <span v-if="userLoggedIn()">
-        <router-link to="/user/:id">My Profile</router-link>
-        |
-      </span>
+        <span v-if="!userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/login">Login</a>
+          </li>
+        </span>
 
-      <span v-if="userLoggedIn()">
-        <router-link to="/school">Schools</router-link>
-        |
-      </span>
+        <span v-if="userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/user/:id">My Profile</a>
+          </li>
+        </span>
 
-      <span v-if="userLoggedIn()">
-        <router-link to="/recruit">Recruits</router-link>
-        |
-      </span>
+        <span v-if="userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/school">D1 Schools</a>
+          </li>
+        </span>
 
-      <span v-if="userLoggedIn()">
-        <router-link to="/schoolselection">School Selections</router-link>
-        |
-      </span>
+        <span v-if="userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/recruit">D1 Recruits</a>
+          </li>
+        </span>
 
-      <span v-if="userLoggedIn()">
-        <router-link to="/logout">Logout</router-link>
-        |
-      </span>
-    </div>
+        <span v-if="userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/schoolselection">Pick your Schools</a>
+          </li>
+        </span>
+
+        <span v-if="userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/logout">Logout</a>
+          </li>
+        </span>
+      </ul>
+    </nav>
+
     <router-view />
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <ul class="list-inline mb-5">
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="#!">
+              <i class="icon-social-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="#!">
+              <i class="icon-social-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white" href="#!">
+              <i class="icon-social-github"></i>
+            </a>
+          </li>
+        </ul>
+        <p class="text-muted small mb-0">Copyright &copy; Your Website 2020</p>
+      </div>
+    </footer>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
 <script>
 export default {
   methods: {

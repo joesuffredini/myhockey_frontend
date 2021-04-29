@@ -1,47 +1,66 @@
 <template>
-  <div class="schoolselection-create">
-    <ul>
-      <li class="text-danger" v-for="error in errors" v-bind:key="error">
-        {{ error }}
-      </li>
-    </ul>
+  <section class="content-section text-black text-center" id="services">
+    <div class="schoolselection-create">
+      <ul>
+        <li class="text-danger" v-for="error in errors" v-bind:key="error">
+          {{ error }}
+        </li>
+      </ul>
 
-    <form method="dialog">
-      <h1>School selection filter options:</h1>
-      <div class="form-group">
-        <label for="enrollment">School size:</label>
-        <input type="range" v-model="range" min="5000" max="80000" step="500" />
-        Selected: {{ range }}
-      </div>
+      <form method="dialog">
+        <h1>School selection filters:</h1>
+        <div class="form-group">
+          <label for="enrollment">School size:</label>
+          <input type="range" v-model="range" min="5000" max="80000" step="500" />
+          Selected: {{ range }}
+        </div>
+        <div class="form-group">
+          <label>Recruit #'s:</label>
+          <input type="recruittotal" class="form-control" v-model="recruittotal" />
+        </div>
+        <br />
+        <a class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="indexSchools(range, recruittotal)">
+          Submit your filters
+        </a>
+      </form>
       <br />
-      <!-- <div class="form-group">
-        <label>Academics:</label>
-        <input type="academics" class="form-control" v-model="academics" />
-      </div> -->
       <br />
-      <div class="form-group">
-        <label>Recruit #'s:</label>
-        <input type="recruittotal" class="form-control" v-model="recruittotal" />
-      </div>
-      <br />
-      <button v-on:click="indexSchools(range, recruittotal)">Submit your filters</button>
-    </form>
-    <br />
-    <br />
-    <form v-on:submit.prevent="createSchoolSelection()">
-      <!-- <h1>Select your school to add to profile</h1> -->
-      <div class="form-group">
-        <label>School</label>
-        <select class="form-control" v-model="school">
-          <!-- <option>Select School</option> -->
-          <option v-for="school in schools" :value="school.id" :key="school.id">{{ school.name }}</option>
-        </select>
-      </div>
-      <br />
-      <input type="submit" class="btn btn-primary" value="Submit your school for your profile" />
-    </form>
-  </div>
+      <form v-on:submit.prevent="createSchoolSelection()">
+        <!-- Select your school to add to profile -->
+        <div class="dropdown">
+          <span>School</span>
+          <div class="dropdown-conent">
+            <select class="form-control" v-model="school">
+              <option v-for="school in schools" :value="school.id" :key="school.id">{{ school.name }}</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <input type="submit" class="btn btn-primary" value="Submit your school for your profile" />
+      </form>
+    </div>
+  </section>
 </template>
+
+<style>
+dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+. .dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 
 <script>
 import axios from "axios";
