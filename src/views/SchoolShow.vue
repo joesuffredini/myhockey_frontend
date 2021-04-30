@@ -12,7 +12,12 @@
         <h5>Head_Coach: {{ school.head_coach }} -- Contact Info: {{ school.email }}</h5>
         <h5>Number of Incoming recruits: {{ total }}</h5>
       </div>
-      <a class="btn btn-secondary btn-xl js-scroll-trigger" v-on:click="showRecruits()">View Recruits</a>
+      <div class="row row-3cols-2">
+        <div class="col">
+          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRecruits()">View Recruits</button>
+          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="goBack()">Back</button>
+        </div>
+      </div>
 
       <dialog id="recruit-info">
         <form method="dialog">
@@ -65,6 +70,10 @@ export default {
 
     showRecruits: function () {
       document.querySelector("#recruit-info").showModal();
+    },
+
+    goBack: function () {
+      this.$router.go(-1);
     },
 
     destroySchool: function (school) {

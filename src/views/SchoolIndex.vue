@@ -2,7 +2,13 @@
   <section class="content-section bg-primary text-secondary text-center" id="services">
     <h1>D1 Hockey Schools</h1>
     <div class="schoolindex">
-      <div class="row">
+      <div
+        is="transition-group"
+        class="row"
+        appear
+        enter-active-class="animated tada"
+        leave-active-class="animated bounceOutRight"
+      >
         <div class="col-sm-6" v-for="school in schools" v-bind:key="school.id">
           <div class="card">
             <div class="card-body">
@@ -16,6 +22,8 @@
         </div>
       </div>
     </div>
+    <br />
+    <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Back</button>
   </section>
 </template>
 
@@ -40,6 +48,10 @@ export default {
         this.schools.sort((a, b) => (a.name > b.name ? 1 : -1));
         console.log("all schools:", this.schools);
       });
+    },
+
+    goBack: function () {
+      this.$router.go(-1);
     },
   },
 };

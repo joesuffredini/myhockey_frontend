@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section bg-primary text-white text-center" id="services">
+  <section class="content-section bg-primary text-black text-center" id="services">
     <h1 strong>D1 Recruits</h1>
     <div class="Recruitindex">
       <div class="row">
@@ -15,6 +15,12 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <br />
+    <div class="row row-3cols-2">
+      <div class="col">
+        <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Back</button>
       </div>
     </div>
   </section>
@@ -41,6 +47,9 @@ export default {
         this.recruits.sort((a, b) => (a.school > b.school ? 1 : -1));
         console.log("all recruits:", this.recruits);
       });
+    },
+    goBack: function () {
+      this.$router.go(-1);
     },
   },
 };

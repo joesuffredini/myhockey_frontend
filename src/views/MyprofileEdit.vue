@@ -81,7 +81,9 @@
           </div>
         </div>
         <br />
-        <input type="submit" class="btn btn-primary btn-l js-scroll-trigger" value="Submit" />
+        <!-- <input type="submit" class="btn btn-primary btn-l js-scroll-trigger" value="Submit" /> -->
+        <button class="btn btn-primary btn-xl js-scroll-trigger">Submit</button>
+        <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Cancel</button>
       </form>
     </div>
   </section>
@@ -128,6 +130,10 @@ export default {
         })
         .catch((error) => console.log(error.response));
     },
+  },
+
+  goBack: function () {
+    this.$router.go(-1);
   },
 };
 </script>

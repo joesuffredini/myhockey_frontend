@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section bg-primmary text-black text-center" id="services">
+  <section class="content-section bg-primary text-secondary text-center" id="services">
     <div class="Recruitshow">
       <h3>Name: {{ recruit.player }}</h3>
       <h3>Position: {{ recruit.position }}</h3>
@@ -8,6 +8,12 @@
       <h3>Position: {{ recruit.position }}</h3>
       <h3>DOB: {{ recruit.birthdate }}</h3>
       <h3>Recruit Year: {{ recruit.year }}</h3>
+    </div>
+
+    <div class="row row-3cols-2">
+      <div class="col">
+        <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="goBack()">Back</button>
+      </div>
     </div>
   </section>
 </template>
@@ -35,6 +41,9 @@ export default {
         console.log("Recruit destroyed");
         this.$router.push("/recruit");
       });
+    },
+    goBack: function () {
+      this.$router.go(-1);
     },
   },
 };
