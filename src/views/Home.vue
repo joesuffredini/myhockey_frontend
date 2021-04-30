@@ -1,9 +1,9 @@
 <template>
-  <div class="masthead d-flex text-white">
+  <div class="masthead d-flex text-black">
     <!-- <h2>Welcome to the MyHockey Recruiting App</h2>
     <h3>An app that helps youth hockey players navigate college recruiting data</h3> -->
     <div class="container text-center my-auto">
-      <h1 class="mb-1">Welcome to MyHockey Recruiting</h1>
+      <h1 class="mb-5">MyHockey Recruiting</h1>
       <h3 class="mb-5">
         <em>An app that helps youth hockey players navigate college recruiting information</em>
       </h3>

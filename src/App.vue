@@ -24,12 +24,6 @@
 
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="/user/:id">My Profile</a>
-          </li>
-        </span>
-
-        <span v-if="userLoggedIn()">
-          <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="/school">D1 Schools</a>
           </li>
         </span>
@@ -43,6 +37,12 @@
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="/schoolselection">Pick your Schools</a>
+          </li>
+        </span>
+
+        <span v-if="userLoggedIn()">
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/user/:id">My Profile</a>
           </li>
         </span>
 

@@ -1,72 +1,97 @@
 <template>
-  <div class="signup">
-    <form v-on:submit.prevent="submit()">
-      <h1>Create your account</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="name" />
-        <small v-if="name.length > 50">NAME IS TO LONG!</small>
-      </div>
-      <div class="form-group">
-        <label>City:</label>
-        <input type="city" class="form-control" v-model="city" />
-      </div>
-      <div class="form-group">
-        <label>State:</label>
-        <input type="state" class="form-control" v-model="state" />
-      </div>
-      <div class="form-group">
-        <label>Birthdate:</label>
-        <input type="birthdate" class="form-control" v-model="birthdate" />
-      </div>
-      <div class="form-group">
-        <label>Age:</label>
-        <input type="age" class="form-control" v-model="age" />
-      </div>
-      <div class="form-group">
-        <label>Height:</label>
-        <input type="height" class="form-control" v-model="height" />
-      </div>
-      <div class="form-group">
-        <label>Weight:</label>
-        <input type="weight" class="form-control" v-model="weight" />
-      </div>
-      <div class="form-group">
-        <label>Position:</label>
-        <input type="position" class="form-control" v-model="position" />
-      </div>
-      <div class="form-group">
-        <label>Shoots:</label>
-        <input type="shoots" class="form-control" v-model="shoots" />
-      </div>
-      <div class="form-group">
-        <label>Team:</label>
-        <input type="team" class="form-control" v-model="team" />
-      </div>
-      <div class="form-group">
-        <label>Coach:</label>
-        <input type="coach" class="form-control" v-model="coach" />
-      </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email" />
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password" />
-      </div>
-      <div class="form-group">
-        <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="passwordConfirmation" />
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
-    </form>
-  </div>
+  <section class="content-section bg-primary text-white text-center" id="services">
+    <div class="signup">
+      <form v-on:submit.prevent="submit()">
+        <h1>Create your account</h1>
+        <ul>
+          <li class="text-danger" v-for="error in errors" v-bind:key="error">
+            {{ error }}
+          </li>
+        </ul>
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input type="text" class="form-control" v-model="name" placeholder="Name:" />
+            <small v-if="name.length > 50">NAME IS TO LONG!</small>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input type="city" class="form-control" v-model="city" placeholder="City:" />
+          </div>
+          <div class="col-sm-auto">
+            <input type="state" class="form-control" v-model="state" placeholder="State:" />
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input type="birthdate" class="form-control" v-model="birthdate" placeholder="Birthdate:  mm/dd/yyyy" />
+          </div>
+          <div class="col-sm-auto">
+            <input type="age" class="form-control" v-model="age" placeholder="Age:" />
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input type="height" class="form-control" v-model="height" placeholder="Height:" />
+          </div>
+          <div class="col-sm-auto">
+            <input type="weight" class="form-control" v-model="weight" placeholder="Weight:" />
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input type="position" class="form-control" v-model="position" placeholder="Position:" />
+          </div>
+          <div class="col-sm-auto">
+            <input type="shoots" class="form-control" v-model="shoots" placeholder="Shoots:" />
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input type="team" class="form-control" v-model="team" placeholder="Team:" />
+          </div>
+          <div class="col-sm-auto">
+            <input type="coach" class="form-control" v-model="coach" placeholder="Coach:" />
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input type="email" class="form-control" v-model="email" placeholder="Email:" />
+          </div>
+          <div class="col-sm-auto">
+            <input type="password" class="form-control" v-model="password" placeholder="Password:" />
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-auto">
+            <input
+              type="password"
+              class="form-control"
+              v-model="passwordConfirmation"
+              placeholder="Password Confirmation"
+            />
+          </div>
+        </div>
+        <br />
+        <input type="submit" class="btn btn-primary btn-l js-scroll-trigger" value="Submit" />
+      </form>
+    </div>
+  </section>
 </template>
 
 <style>

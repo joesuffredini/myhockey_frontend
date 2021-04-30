@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section text-black text-center" id="services">
+  <section class="content-section bg-primary text-black text-center" id="services">
     <div class="schoolselection-create">
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
@@ -9,17 +9,25 @@
 
       <form method="dialog">
         <h1>School selection filters:</h1>
-        <div class="form-group">
-          <label for="enrollment">School size:</label>
-          <input type="range" v-model="range" min="5000" max="80000" step="500" />
-          Selected: {{ range }}
-        </div>
-        <div class="form-group">
-          <label>Recruit #'s:</label>
-          <input type="recruittotal" class="form-control" v-model="recruittotal" />
+        <br />
+        <br />
+        <div class="row g-3">
+          <!-- <label class="col-sm-2 col-form-label"></label> -->
+          <div class="col-sm-12">
+            <h5>Enrollment limit:{{ range }}</h5>
+
+            <input type="range" v-model="range" min="5000" max="80000" step="500" />
+          </div>
         </div>
         <br />
-        <a class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="indexSchools(range, recruittotal)">
+        <div class="row g-3">
+          <label class="col-sm-4 col-form-label"></label>
+          <div class="col-sm-4">
+            <input type="recruittotal" class="form-control" v-model="recruittotal" placeholder="Recruits limit" />
+          </div>
+        </div>
+        <br />
+        <a class="btn btn-primary btn-l js-scroll-trigger" v-on:click="indexSchools(range, recruittotal)">
           Submit your filters
         </a>
       </form>
@@ -28,15 +36,15 @@
       <form v-on:submit.prevent="createSchoolSelection()">
         <!-- Select your school to add to profile -->
         <div class="dropdown">
-          <span>School</span>
+          <span><h3>Please select a school listed below:</h3></span>
           <div class="dropdown-conent">
-            <select class="form-control" v-model="school">
+            <select class="col-sm-4" v-model="school">
               <option v-for="school in schools" :value="school.id" :key="school.id">{{ school.name }}</option>
             </select>
           </div>
         </div>
         <br />
-        <input type="submit" class="btn btn-primary" value="Submit your school for your profile" />
+        <input type="submit" class="btn btn-primary btn-l js-scroll-trigger" value="Submit for your profile" />
       </form>
     </div>
   </section>

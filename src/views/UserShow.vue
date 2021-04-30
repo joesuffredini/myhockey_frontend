@@ -1,8 +1,9 @@
 <template>
   <section class="content-section bg-primary text-secondary text-center" id="My Profile">
     <div class="usershow">
-      <div class="container">
-        <span class="border border-5">
+      <div class="row g-3">
+        <label class="col-sm-4 col-form-label"></label>
+        <span class="col-auto col-form-label">
           <h2>Name: {{ user.name }}</h2>
           <h3>City: {{ user.city }}</h3>
           <h3>State: {{ user.state }}</h3>
@@ -13,6 +14,16 @@
           <h3>Email: {{ user.email }}</h3>
         </span>
       </div>
+
+      <!-- <div class="row g-3">
+        <label class="col-sm-6 col-form-label">
+          <h2>Name: {{ user.name }} " " City: {{ user.city }}</h2>
+          <h3>City: {{ user.city }}</h3>
+        </label> -->
+      <!-- <div class="col-sm-auto">
+          <input type="text" class="form-control" v-model="user.name" placeholder="Name:" />
+        </div> -->
+      <!-- </div> -->
 
       <div class="container">
         <div class="row row-cols-2">

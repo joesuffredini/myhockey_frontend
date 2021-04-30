@@ -8,35 +8,19 @@
             {{ error }}
           </li>
         </ul>
-
         <div class="mb-3 row">
           <label for="inputEmail" class="col-sm-4 col-form-label"></label>
           <div class="col-sm-4">
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Email"
-              aria-label="Email"
-              id="inputEmail"
-              v-model="email"
-            />
+            <input type="email" class="form-control" v-model="email" placeholder="Email" />
           </div>
         </div>
         <div class="mb-3 row">
-          <label for="inputPassword" class="col-sm-4 col-form-label"></label>
+          <label for="inputpassword" class="col-sm-4 col-form-label"></label>
           <div class="col-sm-4">
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Password"
-              aria-label="Password"
-              id="inputPassword"
-              v-model="password"
-            />
+            <input type="password" class="form-control" v-model="password" placeholder="Password" />
           </div>
         </div>
-
-        <input type="submit" class="btn btn-primary btn-xl js-scroll-trigger" value="Submit" />
+        <input type="submit" class="btn btn-primary btn-l js-scroll-trigger" value="Submit" />
       </form>
     </div>
   </section>

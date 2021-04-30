@@ -78,7 +78,7 @@ h6 {
   padding-top: 8rem;
   padding-bottom: 8rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 100%),
-    url(../img/bg-masthead3.jpg);
+    url(../img/Icerink.jpeg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -319,12 +319,15 @@ a:hover {
   font-weight: 700;
 }
 .bg-primary {
-  background-image: url(../img/bg-masthead3.jpg);
-  background-color: #c5dedd !important;
+  background-image: url(../img/Icerink.jpeg);
+  background-color: #030b0a !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .text-primary {
-  color: #1d809f !important;
+  color: #020709 !important;
 }
 .text-secondary {
-  color: #2b0799 !important;
+  color: #05030c !important;
 }

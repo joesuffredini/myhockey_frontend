@@ -1,24 +1,26 @@
 <template>
-  <div class="myschool-edit">
-    <form v-on:submit.prevent="updateSchool(school)">
-      <h1>Edit School Attributes!</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Academic Classification(High/Med/Low):</label>
-        <input type="text" class="form-control" v-model="school.academics" />
-      </div>
-      <div class="form-group">
-        <label>Recruit Classification(High/Med/Low):</label>
-        <input type="text" class="form-control" v-model="school.recruitclass" />
-      </div>
+  <section class="content-section bg-primary text-secondary text-center" id="services">
+    <div class="myschool-edit">
+      <form v-on:submit.prevent="updateSchool(school)">
+        <h1>Edit School Attributes!</h1>
+        <ul>
+          <li class="text-danger" v-for="error in errors" v-bind:key="error">
+            {{ error }}
+          </li>
+        </ul>
+        <div class="form-group">
+          <label>Academic Classification(High/Med/Low):</label>
+          <input type="text" class="form-control" v-model="school.academics" />
+        </div>
+        <div class="form-group">
+          <label>Recruit Classification(High/Med/Low):</label>
+          <input type="text" class="form-control" v-model="school.recruitclass" />
+        </div>
 
-      <input type="submit" class="btn btn-primary" value="Submit" />
-    </form>
-  </div>
+        <input type="submit" class="btn btn-primary" value="Submit" />
+      </form>
+    </div>
+  </section>
 </template>
 
 <script>

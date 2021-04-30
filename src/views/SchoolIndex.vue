@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section bg-primary text-white text-center" id="services">
+  <section class="content-section bg-primary text-secondary text-center" id="services">
     <h1>D1 Hockey Schools</h1>
     <div class="schoolindex">
       <div class="row">

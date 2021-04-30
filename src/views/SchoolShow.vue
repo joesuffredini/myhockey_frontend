@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section bg-primary text-black text-center" id="services">
+  <section class="content-section bg-primary text-secondary text-center" id="services">
     <div class="schoolshow">
       <div class="container">
         <h2>{{ school.name }}</h2>
