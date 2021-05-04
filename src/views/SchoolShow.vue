@@ -10,6 +10,9 @@
         <h5>Nickname: {{ school.nickname }} -- Conference: {{ school.conference }}</h5>
         <h5>School Rink: {{ school.rink }}</h5>
         <h5>Head_Coach: {{ school.head_coach }} -- Contact Info: {{ school.email }}</h5>
+        <h5>Roster breakdown:</h5>
+        <h5>Class: {{ froshtotal }} FR, {{ sophtotal }} SO, {{ juniortotal }} JR, {{ seniortotal }} SR</h5>
+        <h5>Position: {{ forwardtotal }} Forwards, {{ defensetotal }} Defensemen</h5>
         <h5>Number of Incoming recruits: {{ total }}</h5>
       </div>
 
@@ -25,7 +28,7 @@
         <form method="dialog">
           <div v-for="recruit in recruits" :key="recruit">
             <router-link v-bind:to="`/recruit/${recruit.id}`">
-              <h5>Name: {{ recruit["player"] }} -- Position {{ recruit["position"] }} -- Year {{ recruit["year"] }}</h5>
+              <h5>{{ recruit["player"] }} -- Position {{ recruit["position"] }} -- Year {{ recruit["year"] }}</h5>
             </router-link>
           </div>
           <button>Close</button>
@@ -36,11 +39,10 @@
         <form method="dialog">
           <div v-for="roster in rosters" :key="roster">
             <router-link v-bind:to="`/roster/${roster.id}`">
-              <h9>
-                Name: {{ roster["name"] }} -- Position {{ roster["position"] }} -- Year: {{ roster["experience"] }}
-              </h9>
+              <h9>{{ roster["name"] }} -- Position {{ roster["position"] }} -- Year: {{ roster["experience"] }}</h9>
             </router-link>
           </div>
+
           <button>Close</button>
         </form>
       </dialog>
@@ -63,6 +65,12 @@ export default {
       recruits: {},
       rosters: {},
       total: "",
+      froshtotal: "",
+      sophtotal: "",
+      juniortotal: "",
+      seniortotal: "",
+      forwardtotal: "",
+      defensetotal: "",
     };
   },
   created: function () {
@@ -73,11 +81,49 @@ export default {
     showSchool: function () {
       axios.get("/api/school/" + this.$route.params.id).then((response) => {
         this.school = response.data;
-        console.log(this.school);
         this.recruits = this.school.recruit;
         this.rosters = this.school.roster;
-        console.log("recruits", this.recruits);
-        console.log("roster", this.rosters);
+        console.log(this.rosters);
+
+        var i = 0;
+        var frosh = 0;
+        var soph = 0;
+        var junior = 0;
+        var senior = 0;
+        while (i < this.rosters.length) {
+          if (this.rosters[i]["experience"] == "FR") {
+            frosh = frosh + 1;
+            console.log(frosh);
+          } else if (this.rosters[i]["experience"] == "SO") {
+            soph = soph + 1;
+            console.log(soph);
+          } else if (this.rosters[i]["experience"] == "JR") {
+            junior = junior + 1;
+            console.log(junior);
+          } else if (this.rosters[i]["experience"] == "SR") {
+            senior = senior + 1;
+            console.log(senior);
+          }
+          i = i + 1;
+        }
+        this.froshtotal = frosh;
+        this.sophtotal = soph;
+        this.juniortotal = junior;
+        this.seniortotal = senior;
+
+        i = 0;
+        var forward = 0;
+        var defense = 0;
+        while (i < this.rosters.length) {
+          if (this.rosters[i]["position"] == "F") {
+            forward = forward + 1;
+          } else if (this.rosters[i]["position"] == "D") {
+            defense = defense + 1;
+          }
+          i = i + 1;
+        }
+        this.forwardtotal = forward;
+        this.defensetotal = defense;
       });
     },
 
