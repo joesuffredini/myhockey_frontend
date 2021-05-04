@@ -24,19 +24,19 @@
 
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="/school">D1 Schools</a>
+            <a class="js-scroll-trigger" href="/school">Athletic Programs</a>
           </li>
         </span>
 
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="/recruit">D1 Recruits</a>
+            <a class="js-scroll-trigger" href="/recruit">Recruits</a>
           </li>
         </span>
 
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="/schoolselection">Pick your Schools</a>
+            <a class="js-scroll-trigger" href="/schoolselection">Pick a School</a>
           </li>
         </span>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section bg-primary text-white text-center" id="services">
+  <section class="content-section bg-primary text-black text-center" id="services">
     <div class="login">
       <form v-on:submit.prevent="submit()">
         <h1>Login</h1>

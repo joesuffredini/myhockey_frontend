@@ -1,6 +1,7 @@
 <template>
   <section class="content-section bg-primary text-secondary text-center" id="services">
     <div class="Recruitshow">
+      <img :src="recruit.image" :alt="recruit.name" width="150" height="150" />
       <h3>Name: {{ recruit.player }}</h3>
       <h3>Position: {{ recruit.position }}</h3>
       <h3>Height: {{ recruit.height }}</h3>

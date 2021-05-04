@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section bg-primary text-secondary text-center" id="services">
+  <section class="content-section bg-primary text-black text-center" id="services">
     <div class="myprofile-edit">
       <form v-on:submit.prevent="updateUser(user)">
         <h1>Edit My Profile!</h1>

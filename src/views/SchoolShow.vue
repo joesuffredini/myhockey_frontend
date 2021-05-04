@@ -12,9 +12,11 @@
         <h5>Head_Coach: {{ school.head_coach }} -- Contact Info: {{ school.email }}</h5>
         <h5>Number of Incoming recruits: {{ total }}</h5>
       </div>
+
       <div class="row row-3cols-2">
         <div class="col">
           <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRecruits()">View Recruits</button>
+          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRosters()">View Team Roster</button>
           <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="goBack()">Back</button>
         </div>
       </div>
@@ -22,8 +24,21 @@
       <dialog id="recruit-info">
         <form method="dialog">
           <div v-for="recruit in recruits" :key="recruit">
-            <router-link v-bind:to="`/recruit`">
-              <h3>Name: {{ recruit }}</h3>
+            <router-link v-bind:to="`/recruit/${recruit.id}`">
+              <h5>Name: {{ recruit["player"] }} -- Position {{ recruit["position"] }} -- Year {{ recruit["year"] }}</h5>
+            </router-link>
+          </div>
+          <button>Close</button>
+        </form>
+      </dialog>
+
+      <dialog id="roster-info">
+        <form method="dialog">
+          <div v-for="roster in rosters" :key="roster">
+            <router-link v-bind:to="`/roster/${roster.id}`">
+              <h9>
+                Name: {{ roster["name"] }} -- Position {{ roster["position"] }} -- Year: {{ roster["experience"] }}
+              </h9>
             </router-link>
           </div>
           <button>Close</button>
@@ -46,6 +61,7 @@ export default {
     return {
       school: {},
       recruits: {},
+      rosters: {},
       total: "",
     };
   },
@@ -57,7 +73,11 @@ export default {
     showSchool: function () {
       axios.get("/api/school/" + this.$route.params.id).then((response) => {
         this.school = response.data;
-        this.recruits = this.school.recruits_player;
+        console.log(this.school);
+        this.recruits = this.school.recruit;
+        this.rosters = this.school.roster;
+        console.log("recruits", this.recruits);
+        console.log("roster", this.rosters);
       });
     },
 
@@ -70,6 +90,10 @@ export default {
 
     showRecruits: function () {
       document.querySelector("#recruit-info").showModal();
+    },
+
+    showRosters: function () {
+      document.querySelector("#roster-info").showModal();
     },
 
     goBack: function () {

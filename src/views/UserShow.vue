@@ -37,7 +37,7 @@
             <dialog id="school-info">
               <form method="dialog">
                 <div v-for="image in images" :key="image">
-                  <router-link v-bind:to="`/school`">
+                  <router-link v-bind:to="`/school/`">
                     <img :src="image" :alt="image" width="75" height="75" />
                   </router-link>
                 </div>
@@ -52,10 +52,8 @@
 </template>
 
 <style>
-body{
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-
-
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 </style>
 
