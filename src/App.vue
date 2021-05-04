@@ -42,7 +42,7 @@
 
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="/user/:id">My Profile</a>
+            <router-link class="js-scroll-trigger" v-bind:to="`/user/${getUserId()}`">My Profile</router-link>
           </li>
         </span>
 

@@ -36,9 +36,9 @@
             <a class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="showSchools()">View Schools Selected</a>
             <dialog id="school-info">
               <form method="dialog">
-                <div v-for="image in images" :key="image">
-                  <router-link v-bind:to="`/school/`">
-                    <img :src="image" :alt="image" width="75" height="75" />
+                <div v-for="school in schools" :key="school.id">
+                  <router-link v-bind:to="`/school/${school.id}`">
+                    <img :src="school.image" :alt="school.name" width="75" height="75" />
                   </router-link>
                 </div>
                 <button>Close</button>
@@ -76,8 +76,6 @@ export default {
         console.log("user info", response.data);
         this.user = response.data;
         this.schools = this.user.schools;
-        this.images = this.user.image;
-        console.log(this.user.schools);
       });
     },
 
