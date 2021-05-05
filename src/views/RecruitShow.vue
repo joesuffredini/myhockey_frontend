@@ -7,7 +7,6 @@
       <h3>Height: {{ recruit.height }}</h3>
       <h3>Weight: {{ recruit.weight }} lbs</h3>
       <h3>Position: {{ recruit.position }}</h3>
-      <h3>DOB: {{ recruit.birthdate }}</h3>
       <h3>Recruit Year: {{ recruit.year }}</h3>
     </div>
 

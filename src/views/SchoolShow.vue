@@ -1,25 +1,60 @@
 <template>
   <section class="content-section bg-primary text-secondary text-center" id="services">
     <div class="schoolshow">
-      <div class="container">
-        <h2>{{ school.name }}</h2>
-        <img :src="school.image" :alt="school.name" width="150" height="150" />
+      <span class="nowrap">
+        <h1>{{ school.name }}</h1>
+        <img :src="school.image" :alt="school.name" class="img-thumbnail" width="100" height="100" />
         <br />
-        <a v-bind:href="school.url" v-bind:alt="school.url"><h5>Athletic website</h5></a>
-        <h5>Location: {{ school.location }} -- Enrollment: {{ school.enrollment }}</h5>
-        <h5>Nickname: {{ school.nickname }} -- Conference: {{ school.conference }}</h5>
-        <h5>School Rink: {{ school.rink }}</h5>
-        <h5>Head_Coach: {{ school.head_coach }} -- Contact Info: {{ school.email }}</h5>
-        <h5>Roster Breakdown:</h5>
-        <h5>Class: {{ froshtotal }} FR, {{ sophtotal }} SO, {{ juniortotal }} JR, {{ seniortotal }} SR</h5>
-        <h5>Position: {{ forwardtotal }} Forwards, {{ defensetotal }} Defensemen, {{ goalietotal }} Goalies</h5>
+        <a v-bind:href="school.url" v-bind:alt="school.url">
+          <h5>
+            <u><i>Athletic website</i></u>
+          </h5>
+        </a>
+        <h5>
+          <i>Location:</i>
+          {{ school.location }} ---
+          <i>Enrollment:</i>
+          {{ school.enrollment }}
+        </h5>
+        <h5>
+          <i>Nickname:</i>
+          {{ school.nickname }} ---
+          <i>Conference:</i>
+          {{ school.conference }}
+        </h5>
+        <h5>
+          <i>School Rink:</i>
+          {{ school.rink }}
+        </h5>
+        <h5>
+          <i>Head_Coach:</i>
+          {{ school.head_coach }} --
+          <i>Contact Info:</i>
+          {{ school.email }}
+        </h5>
+        <br />
+        <h5>
+          <u>Roster Breakdown:</u>
+        </h5>
+        <h5>
+          <ul>
+            <li>{{ froshtotal }} - Freshmen</li>
+            <li>{{ sophtotal }} - Sophomores</li>
+            <li>{{ juniortotal }} - Junior</li>
+            <li>{{ seniortotal }} - Senior</li>
+            <li>{{ gradtotal }} - Grad Student</li>
+          </ul>
+        </h5>
+        <h5>{{ forwardtotal }} Forwards, {{ defensetotal }} Defensemen, {{ goalietotal }} Goalies</h5>
         <h5>Number of Incoming recruits: {{ total }}</h5>
-      </div>
+      </span>
 
       <div class="row row-3cols-2">
         <div class="col">
           <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRecruits()">View Recruits</button>
+
           <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRosters()">View Team Roster</button>
+
           <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="goBack()">Back</button>
         </div>
       </div>
@@ -37,12 +72,13 @@
 
       <dialog id="roster-info">
         <form method="dialog">
+          <h3>Team Roster</h3>
+
           <div v-for="roster in rosters" :key="roster">
             <router-link v-bind:to="`/roster/${roster.id}`">
               <h9>{{ roster["name"] }} -- {{ roster["position"] }} -- {{ roster["experience"] }}</h9>
             </router-link>
           </div>
-
           <button>Close</button>
         </form>
       </dialog>
@@ -53,6 +89,15 @@
 <style>
 .schoolshow {
   background-color: lightblue;
+}
+
+h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(43, 0, 255);
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 </style>
 
@@ -72,6 +117,7 @@ export default {
       forwardtotal: "",
       defensetotal: "",
       goalietotal: "",
+      gradtotal: "",
     };
   },
   created: function () {
@@ -94,19 +140,18 @@ export default {
         var soph = 0;
         var junior = 0;
         var senior = 0;
+        var graduate = 0;
         while (i < this.rosters.length) {
           if (this.rosters[i]["experience"] == "FR") {
             frosh = frosh + 1;
-            console.log(frosh);
           } else if (this.rosters[i]["experience"] == "SO") {
             soph = soph + 1;
-            console.log(soph);
           } else if (this.rosters[i]["experience"] == "JR") {
             junior = junior + 1;
-            console.log(junior);
           } else if (this.rosters[i]["experience"] == "SR") {
             senior = senior + 1;
-            console.log(senior);
+          } else if (this.rosters[i]["experience"] == "GR") {
+            graduate = graduate + 1;
           }
           i = i + 1;
         }
@@ -114,6 +159,7 @@ export default {
         this.sophtotal = soph;
         this.juniortotal = junior;
         this.seniortotal = senior;
+        this.gradtotal = graduate;
 
         i = 0;
         var forward = 0;

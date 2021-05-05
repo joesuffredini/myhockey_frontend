@@ -23,7 +23,7 @@
         <div class="row g-3">
           <label class="col-sm-4 col-form-label"></label>
           <div class="col-sm-4">
-            <input type="recruittotal" class="form-control" v-model="recruittotal" placeholder="Recruits limit" />
+            <input type="recruittotal" class="form-control" v-model="recruittotal" placeholder="Recruit limit" />
           </div>
         </div>
         <br />

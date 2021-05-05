@@ -1,6 +1,7 @@
 <template>
   <section class="content-section bg-primary text-black text-center" id="services">
     <h1 strong>D1 Recruits</h1>
+    <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Back</button>
     <div class="Recruitindex">
       <div class="row">
         <div class="col-sm-6" v-for="recruit in recruits" v-bind:key="recruit.id">
@@ -19,14 +20,19 @@
     </div>
     <br />
     <div class="row row-3cols-2">
-      <div class="col">
-        <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Back</button>
-      </div>
+      <div class="col"></div>
     </div>
   </section>
 </template>
 
-<style></style>
+<style>
+button {
+  margin-bottom: 50px;
+}
+h1 {
+  margin-bottom: 50px;
+}
+</style>
 
 <script>
 import axios from "axios";
