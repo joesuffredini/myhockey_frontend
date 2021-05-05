@@ -16,7 +16,7 @@
           <div class="col-sm-12">
             <h5>Enrollment limit:{{ range }}</h5>
 
-            <input type="range" v-model="range" min="5000" max="80000" step="500" />
+            <input type="range" v-model="range" min="500" max="80000" step="100" />
           </div>
         </div>
         <br />

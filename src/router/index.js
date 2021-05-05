@@ -9,6 +9,8 @@ import SchoolIndex from "../views/SchoolIndex.vue";
 import UserIndex from "../views/UserIndex.vue";
 import UserShow from "../views/UserShow.vue";
 import RecruitShow from "../views/RecruitShow.vue";
+import RosterIndex from "../views/RosterIndex.vue";
+import RosterShow from "../views/RosterShow.vue";
 import RecruitIndex from "../views/RecruitIndex.vue";
 import SchoolSelection from "../views/SchoolSelection.vue";
 import MyprofileEdit from "../views/MyprofileEdit.vue";
@@ -39,6 +41,8 @@ const routes = [
   { path: "/user/:id", name: "usershow", component: UserShow},
   { path: "/recruit/:id", name: "recruitshow", component: RecruitShow},
   { path: "/recruit", name: "recruitindex", component: RecruitIndex},
+  { path: "/roster/:id", name: "rostershow", component: RosterShow},
+  { path: "/roster", name: "rosterindex", component: RosterIndex},
   { path: "/schoolselection", name: "schoolselectioncreate", component: SchoolSelection},
   { path: "/user/:id/edit", name: "myprofile-edit", component: MyprofileEdit},
   { path: "/school/:id/edit", name: "myschool-edit", component: MyschoolEdit},

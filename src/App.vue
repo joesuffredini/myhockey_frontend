@@ -25,6 +25,7 @@
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="/school">Athletic Programs</a>
+            <!-- <router-link class="js-scroll-trigger" v-bind:to="`/school/`">Athletic Progams</router-link> -->
           </li>
         </span>
 
