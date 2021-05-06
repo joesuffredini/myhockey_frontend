@@ -20,22 +20,47 @@
           </div>
         </div>
         <br />
-        <div class="row g-3">
+        <!-- <div class="row">
           <label class="col-sm-4 col-form-label"></label>
           <div class="col-sm-4">
-            <input type="recruittotal" class="form-control" v-model="recruittotal" placeholder="Recruit limit" />
+            <input
+              type="recruittotal"
+              class="form-control"
+              v-model="recruittotal"
+              placeholder="# of recruits threshold"
+            />
           </div>
-        </div>
+        </div> -->
         <br />
-        <a class="btn btn-primary btn-l js-scroll-trigger" v-on:click="indexSchools(range, recruittotal)">
-          Submit your filters
-        </a>
+        <a class="btn btn-primary btn-s js-scroll-trigger" v-on:click="indexSchools(range, recruittotal)">Submit</a>
       </form>
       <br />
       <br />
-      <form v-on:submit.prevent="createSchoolSelection()">
-        <!-- Select your school to add to profile -->
-        <div class="dropdown">
+      <div class="col">
+        <a class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="showSchools()">View Filtered School List</a>
+        <dialog id="school-info">
+          <form method="dialog">
+            <div class="dropdown">
+              <span><h3>Schools - based on filters chosen</h3></span>
+              <div class="dropdown-conent">
+                <div v-for="school in schools" :key="school.id">
+                  <router-link v-bind:to="`/school/${school.id}`">
+                    <h5>
+                      {{ school.name }}
+                      <img :src="school.image" :alt="school.name" width="25" height="25" />
+                    </h5>
+                  </router-link>
+                </div>
+              </div>
+            </div>
+            <button>Close</button>
+          </form>
+        </dialog>
+      </div>
+
+      <!-- <form v-on:submit.prevent="createSchoolSelection()"> -->
+      <!-- Select your school to add to profile -->
+      <!-- <div class="dropdown">
           <span><h3>Please select a school listed below:</h3></span>
           <div class="dropdown-conent">
             <select class="col-sm-4" v-model="school">
@@ -45,28 +70,22 @@
         </div>
         <br />
         <input type="submit" class="btn btn-primary btn-l js-scroll-trigger" value="Submit for your profile" />
-      </form>
+      </form> -->
     </div>
   </section>
 </template>
 
 <style>
-dropdown {
-  position: relative;
-  display: inline-block;
+h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: blue; */
+  color: blue;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-. .dropdown:hover .dropdown-content {
-  display: block;
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: blue; */
+  color: blue;
 }
 </style>
 
@@ -88,20 +107,18 @@ export default {
     this.indexSchools();
   },
   methods: {
-    createSchoolSelection: function () {
-      let params = {
-        school: this.school,
-        user: localStorage.getItem("user_id"),
-      };
-      axios
-        .post("/api/recruitinfo", params)
-        .then((response) => {
-          this.selection = response.data;
-          console.log("Creating a Profile", this.selection);
-          this.$router.push("/user/" + this.user_id);
-        })
-        .catch((errors) => console.log(errors.response));
+    showSchool: function () {
+      axios.get("/api/school/" + this.$route.params.id).then((response) => {
+        this.school = response.data;
+        this.school.sort((a, b) => (a.name > b.name ? 1 : -1));
+        console.log(this.school);
+      });
     },
+
+    showSchools: function () {
+      document.querySelector("#school-info").showModal();
+    },
+
     indexSchools: function (range, recruittotal) {
       axios.get("/api/school").then((response) => {
         var temp = response.data.filter(function (x) {

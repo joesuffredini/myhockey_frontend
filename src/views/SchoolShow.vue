@@ -55,6 +55,10 @@
 
           <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRosters()">View Team Roster</button>
 
+          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="createSchoolSelection()">
+            Select for Profile
+          </button>
+
           <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="goBack()">Back</button>
         </div>
       </div>
@@ -96,9 +100,6 @@ h5 {
   color: rgb(43, 0, 255);
 }
 
-.nowrap {
-  white-space: nowrap;
-}
 </style>
 
 <script>
@@ -128,12 +129,11 @@ export default {
     showSchool: function () {
       axios.get("/api/school/" + this.$route.params.id).then((response) => {
         this.school = response.data;
+        console.log(this.school);
         this.recruits = this.school.recruit;
         this.rosters = this.school.roster;
         this.recruits.sort((a, b) => (a.year > b.year ? 1 : -1));
         this.rosters.sort((a, b) => (a.experience > b.experience ? 1 : -1));
-
-        console.log(this.rosters);
 
         var i = 0;
         var frosh = 0;
@@ -179,6 +179,21 @@ export default {
         this.defensetotal = defense;
         this.goalietotal = goalie;
       });
+    },
+
+    createSchoolSelection: function () {
+      let params = {
+        school: this.school.id,
+        user: localStorage.getItem("user_id"),
+      };
+      axios
+        .post("/api/recruitinfo", params)
+        .then((response) => {
+          this.selection = response.data;
+          console.log("Creating a Profile", this.selection);
+          this.$router.push("/user/" + this.user_id);
+        })
+        .catch((errors) => console.log(errors.response));
     },
 
     getRecruittotal: function () {

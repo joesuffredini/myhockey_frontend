@@ -28,6 +28,10 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   color: blue;
 }
+h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: blue;
+}
 </style>
 
 <script>

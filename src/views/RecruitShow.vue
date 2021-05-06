@@ -18,6 +18,20 @@
   </section>
 </template>
 
+<style>
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: black; */
+  color: blue;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: black; */
+  color: blue;
+}
+</style>
+
 <script>
 import axios from "axios";
 export default {

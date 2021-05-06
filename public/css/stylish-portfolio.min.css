@@ -104,7 +104,7 @@ h6 {
   height: 100%;
   transition: all 0.4s ease 0s;
   transform: translateX(250px);
-  background: #1d809f;
+  background: blue;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 .sidebar-nav {
@@ -273,7 +273,7 @@ footer.footer .social-link {
   width: 4rem;
   line-height: 4.3rem;
   font-size: 1.5rem;
-  background-color: #1d809f;
+  background-color: blue;
   transition: background-color 0.15s ease-in-out;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
@@ -290,7 +290,7 @@ a:hover {
   color: #155d74;
 }
 .btn-primary {
-  background-color: #1d809f !important;
+  background-color: blue !important;
   border-color: #1d809f !important;
   color: #fff !important;
 }

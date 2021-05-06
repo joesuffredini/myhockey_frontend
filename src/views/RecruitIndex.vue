@@ -4,8 +4,8 @@
     <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Back</button>
     <div class="Recruitindex">
       <div class="row">
-        <div class="col-sm-6" v-for="recruit in recruits" v-bind:key="recruit.id">
-          <div class="card">
+        <div class="col-sm-6" v-for="recruit in recruits" v-bind:key="recruit.id" style="background-color: blue">
+          <div class="card" style="background-color: beige">
             <div class="card-body">
               <router-link v-bind:to="`recruit/${recruit.id}`">
                 <img :src="recruit.image" :alt="recruit.name" width="50" height="50" />

@@ -6,7 +6,7 @@
     <div class="schoolindex">
       <div class="row">
         <div class="col-lg-4" v-for="school in schools" v-bind:key="school.id" style="background-color: blue">
-          <div class="card" style="background-color: lightblue">
+          <div class="card" style="background-color: beige">
             <div class="card-body">
               <router-link v-bind:to="`school/${school.id}`">
                 <img
