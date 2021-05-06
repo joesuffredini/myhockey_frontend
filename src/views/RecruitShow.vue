@@ -30,6 +30,10 @@ h1 {
   /* background-color: black; */
   color: blue;
 }
+
+.Recruitshow {
+  background-color: lightblue;
+}
 </style>
 
 <script>

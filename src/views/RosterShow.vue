@@ -14,6 +14,12 @@
   </section>
 </template>
 
+<style>
+.rostershow {
+  background-color: lightblue;
+}
+</style>
+
 <script>
 import axios from "axios";
 

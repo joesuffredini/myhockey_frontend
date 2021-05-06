@@ -87,6 +87,10 @@ h1 {
   /* background-color: blue; */
   color: blue;
 }
+
+.schoolselection-create {
+  background-color: lightblue;
+}
 </style>
 
 <script>
