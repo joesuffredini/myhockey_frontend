@@ -1,9 +1,8 @@
 <template>
   <section class="content-section text-black text-center bg-primary" id="services">
-    <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Back</button>
-
     <div class="container text-center my-auto">
       <h1>NCAA Recruiting Details</h1>
+      <button class="btn btn-primary btn-xl js-scroll-trigger" v-on:click="goBack()">Back</button>
 
       <img src="../assets/ncaa-rules.jpeg" alt="../assets/logo.png" width="900" height="900" />
     </div>

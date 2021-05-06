@@ -9,12 +9,13 @@
 
       <form method="dialog">
         <h1>School selection filters:</h1>
+        <h3>Filter your school list based on enrollment size</h3>
         <br />
         <br />
         <div class="row g-3">
           <!-- <label class="col-sm-2 col-form-label"></label> -->
           <div class="col-sm-12">
-            <h5>Enrollment limit:{{ range }}</h5>
+            <h5>LIMIT:{{ range }}</h5>
 
             <input type="range" v-model="range" min="500" max="80000" step="100" />
           </div>
@@ -32,7 +33,7 @@
           </div>
         </div> -->
         <br />
-        <a class="btn btn-primary btn-s js-scroll-trigger" v-on:click="indexSchools(range, recruittotal)">Submit</a>
+        <a class="btn btn-primary btn-s js-scroll-trigger" v-on:click="indexSchools(range)">Submit</a>
       </form>
       <br />
       <br />
@@ -123,10 +124,10 @@ export default {
       document.querySelector("#school-info").showModal();
     },
 
-    indexSchools: function (range, recruittotal) {
+    indexSchools: function (range) {
       axios.get("/api/school").then((response) => {
         var temp = response.data.filter(function (x) {
-          return x.enrollment < range && x.recruits_position.length <= recruittotal;
+          return x.enrollment < range;
         });
         this.schools = temp;
         console.log("filtered data", this.schools);

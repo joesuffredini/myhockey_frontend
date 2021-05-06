@@ -12,8 +12,8 @@
                 <img
                   :src="school.image"
                   :alt="school.name"
-                  width="150"
-                  height="150"
+                  width="100"
+                  height="100"
                   style="background-color: lightblue"
                 />
                 <h5>{{ school.name }} {{ school.nickname }}</h5>

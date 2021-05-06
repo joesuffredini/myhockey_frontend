@@ -4,9 +4,9 @@
       <div class="row g-3">
         <label class="col-sm-4 col-form-label"></label>
         <span class="col-auto col-form-label">
-          <h2>Name: {{ user.name }}</h2>
-          <h3>City: {{ user.city }}</h3>
-          <h3>State: {{ user.state }}</h3>
+          <h1>My Profile</h1>
+          <h3>Name: {{ user.name }}</h3>
+          <h3>City: {{ user.city }} -- State: {{ user.state }}</h3>
           <h3>BD: {{ user.birthdate }}</h3>
           <h3>Height: {{ user.height }} Weight: {{ user.weight }}</h3>
           <h3>Position: {{ user.position }} Shoots: {{ user.shoots }}</h3>
@@ -44,6 +44,11 @@
 <style>
 .usershow {
   background-color: lightblue;
+}
+
+h2 {
+  margin-bottom: 5px;
+  font-style: italic;
 }
 </style>
 

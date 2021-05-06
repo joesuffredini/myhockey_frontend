@@ -37,7 +37,7 @@
 
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="/schoolselection">Filters</a>
+            <a class="js-scroll-trigger" href="/schoolselection">School Filter</a>
           </li>
         </span>
 
