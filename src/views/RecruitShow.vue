@@ -20,19 +20,19 @@
 
 <style>
 h3 {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   /* background-color: black; */
-  color: blue;
+  /* color: blue; */
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   /* background-color: black; */
-  color: blue;
+  /* color: blue; */
 }
 
 .Recruitshow {
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }
 </style>
 

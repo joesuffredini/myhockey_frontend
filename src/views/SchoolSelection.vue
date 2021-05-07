@@ -58,35 +58,22 @@
           </form>
         </dialog>
       </div>
-
-      <!-- <form v-on:submit.prevent="createSchoolSelection()"> -->
-      <!-- Select your school to add to profile -->
-      <!-- <div class="dropdown">
-          <span><h3>Please select a school listed below:</h3></span>
-          <div class="dropdown-conent">
-            <select class="col-sm-4" v-model="school">
-              <option v-for="school in schools" :value="school.id" :key="school.id">{{ school.name }}</option>
-            </select>
-          </div>
-        </div>
-        <br />
-        <input type="submit" class="btn btn-primary btn-l js-scroll-trigger" value="Submit for your profile" />
-      </form> -->
     </div>
   </section>
 </template>
 
 <style>
 h5 {
-  font-family: Arial, Helvetica, sans-serif;
-  /* background-color: blue; */
-  color: blue;
+  /* font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: blue; */
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   /* background-color: blue; */
-  color: blue;
+  /* color: blue;
+  text-align: center; */
 }
 
 .schoolselection-create {

@@ -5,13 +5,14 @@
         <label class="col-sm-4 col-form-label"></label>
         <span class="col-auto col-form-label">
           <h1>My Profile</h1>
-          <h3>Name: {{ user.name }}</h3>
-          <h3>City: {{ user.city }} -- State: {{ user.state }}</h3>
-          <h3>BD: {{ user.birthdate }}</h3>
-          <h3>Height: {{ user.height }} Weight: {{ user.weight }}</h3>
-          <h3>Position: {{ user.position }} Shoots: {{ user.shoots }}</h3>
-          <h3>Current Coach: {{ user.coach }}</h3>
-          <h3>Email: {{ user.email }}</h3>
+          <img src="../assets/DanteVH.jpg" alt="../assets/logo.png" width="200" height="200" />
+          <br />
+          <h5>Name: {{ user.name }}</h5>
+          <h5>City: {{ user.city }} -- State: {{ user.state }}</h5>
+          <h5>Height: {{ user.height }} -- Weight: {{ user.weight }}lbs</h5>
+          <h5>Position: {{ user.position }} -- Shoots: {{ user.shoots }}</h5>
+          <h5>Coach: {{ user.coach }}</h5>
+          <h5>Email: {{ user.email }}</h5>
         </span>
       </div>
 
@@ -29,8 +30,13 @@
                 <div v-for="school in schools" :key="school.id">
                   <router-link v-bind:to="`/school/${school.id}`">
                     <img :src="school.image" :alt="school.name" width="75" height="75" />
+                    <br />
                   </router-link>
                 </div>
+                <!-- <a class="btn btn-primary btn-l js-scroll-trigger" v-on:click="deleteSchools()">
+                  Delete a school from list
+                </a> -->
+                <br />
                 <button>Close</button>
               </form>
             </dialog>
@@ -42,13 +48,17 @@
 </template>
 
 <style>
-.usershow {
-  background-color: lightblue;
+h1 {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* color: white; */
+  /* background-color: lightblue; */
 }
-
-h2 {
-  margin-bottom: 5px;
-  font-style: italic;
+h5 {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* color: white; */
+  /* background-color: lightblue; */
+  /* margin-top: 10px; */
+  /* font-style: italic; */
 }
 </style>
 
@@ -71,18 +81,12 @@ export default {
         console.log("user info", response.data);
         this.user = response.data;
         this.schools = this.user.schools;
+        console.log("schools", this.schools);
       });
     },
 
     showSchools: function () {
       document.querySelector("#school-info").showModal();
-    },
-
-    destroyUser: function (user) {
-      axios.delete("/api/user/" + user.id).then(() => {
-        console.log("User destroyed");
-        this.$router.push("/user");
-      });
     },
   },
 };

@@ -24,6 +24,12 @@
 
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
+            <router-link class="js-scroll-trigger" v-bind:to="`/user/${getUserId()}`">My Profile</router-link>
+          </li>
+        </span>
+
+        <span v-if="userLoggedIn()">
+          <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="/school">Programs</a>
             <!-- <router-link class="js-scroll-trigger" v-bind:to="`/school/`">Athletic Progams</router-link> -->
           </li>
@@ -38,12 +44,6 @@
         <span v-if="userLoggedIn()">
           <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="/schoolselection">School Filter</a>
-          </li>
-        </span>
-
-        <span v-if="userLoggedIn()">
-          <li class="sidebar-nav-item">
-            <router-link class="js-scroll-trigger" v-bind:to="`/user/${getUserId()}`">My Profile</router-link>
           </li>
         </span>
 

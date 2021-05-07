@@ -16,6 +16,12 @@
 img {
   border-radius: 25%;
 }
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: blue;
+  /* background-color: blue; */
+}
 h2 {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 100px;
@@ -23,16 +29,6 @@ h2 {
   color: white;
   background-color: blue;
 }
-h3 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: blue;
-}
-h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  /* background-color: white; */
-}
-
 h5 {
   font-family: Arial, Helvetica, sans-serif;
   color: blue;

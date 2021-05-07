@@ -15,9 +15,7 @@
 </template>
 
 <style>
-.rostershow {
-  background-color: lightblue;
-}
+
 </style>
 
 <script>

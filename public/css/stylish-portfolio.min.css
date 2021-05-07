@@ -291,8 +291,8 @@ a:hover {
 }
 .btn-primary {
   background-color: blue !important;
-  border-color: #1d809f !important;
-  color: #fff !important;
+  border-color: blue !important;
+  color: white !important;
 }
 .btn-primary:active,
 .btn-primary:focus,

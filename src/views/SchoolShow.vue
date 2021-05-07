@@ -1,65 +1,73 @@
 <template>
   <section class="content-section bg-primary text-secondary text-center" id="services">
     <div class="schoolshow">
-      <span class="nowrap">
-        <h1>{{ school.name }}</h1>
-        <img :src="school.image" :alt="school.name" class="img-thumbnail" width="100" height="100" />
-        <br />
-        <a v-bind:href="school.url" v-bind:alt="school.url">
+      <div class="row g-3">
+        <label class="col-sm-4 col-form-label"></label>
+        <span cclass="col-auto col-form-label">
+          <h1>{{ school.name }}</h1>
+          <img :src="school.image" :alt="school.name" class="img-thumbnail" width="150" height="10" />
+          <br />
+          <a v-bind:href="school.url" v-bind:alt="school.url">
+            <h5>
+              <u><i>Athletic website</i></u>
+            </h5>
+          </a>
           <h5>
-            <u><i>Athletic website</i></u>
+            <i>Location:</i>
+            {{ school.location }} ---
+            <i>Enrollment:</i>
+            {{ school.enrollment }}
           </h5>
-        </a>
-        <h5>
-          <i>Location:</i>
-          {{ school.location }} ---
-          <i>Enrollment:</i>
-          {{ school.enrollment }}
-        </h5>
-        <h5>
-          <i>Nickname:</i>
-          {{ school.nickname }} ---
-          <i>Conference:</i>
-          {{ school.conference }}
-        </h5>
-        <h5>
-          <i>School Rink:</i>
-          {{ school.rink }}
-        </h5>
-        <h5>
-          <i>Head_Coach:</i>
-          {{ school.head_coach }} --
-          <i>Contact Info:</i>
-          {{ school.email }}
-        </h5>
-        <br />
-        <h5>
-          <u>Roster Breakdown:</u>
-        </h5>
-        <h5>
-          <ul>
-            <li>{{ froshtotal }} - Freshmen</li>
-            <li>{{ sophtotal }} - Sophomores</li>
-            <li>{{ juniortotal }} - Junior</li>
-            <li>{{ seniortotal }} - Senior</li>
-            <li>{{ gradtotal }} - Grad Student</li>
-          </ul>
-        </h5>
-        <h5>{{ forwardtotal }} Forwards, {{ defensetotal }} Defensemen, {{ goalietotal }} Goalies</h5>
-        <h5>Number of Incoming recruits: {{ total }}</h5>
-      </span>
+          <h5>
+            <i>Nickname:</i>
+            {{ school.nickname }} ---
+            <i>Conference:</i>
+            {{ school.conference }}
+          </h5>
+          <h5>
+            <i>School Rink:</i>
+            {{ school.rink }}
+          </h5>
+          <h5>
+            <i>Head_Coach:</i>
+            {{ school.head_coach }} --
+            <i>Contact Info:</i>
+            {{ school.email }}
+          </h5>
+          <br />
+          <h5>
+            <u>Roster Breakdown:</u>
+          </h5>
+          <h5>
+            <ul>
+              <li>{{ froshtotal }} - Freshmen</li>
+              <li>{{ sophtotal }} - Sophomores</li>
+              <li>{{ juniortotal }} - Junior</li>
+              <li>{{ seniortotal }} - Senior</li>
+              <li>{{ gradtotal }} - Grad Student</li>
+            </ul>
+          </h5>
+          <h5>{{ forwardtotal }} Forwards, {{ defensetotal }} Defensemen, {{ goalietotal }} Goalies</h5>
+          <h5>Number of Incoming recruits: {{ total }}</h5>
+        </span>
+      </div>
 
-      <div class="row row-3cols-2">
+      <div class="row g-3">
         <div class="col">
-          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRecruits()">View Recruits</button>
+          <label class="col-sm-1 col-form-label"></label>
+          <span cclass="col-auto col-form-label">
+            <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRecruits()">
+              Incoming Recruits
+            </button>
 
-          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRosters()">View Team Roster</button>
+            <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="showRosters()">Team Roster</button>
 
-          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="createSchoolSelection()">
-            Select for Profile
-          </button>
+            <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="createSchoolSelection()">
+              Select for Profile
+            </button>
 
-          <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="goBack()">Back</button>
+            <button class="btn btn-primary btn-l js-scroll-trigger" v-on:click="goBack()">Back</button>
+          </span>
         </div>
       </div>
 
@@ -67,7 +75,7 @@
         <form method="dialog">
           <div v-for="recruit in recruits" :key="recruit">
             <router-link v-bind:to="`/recruit/${recruit.id}`">
-              <h5>{{ recruit["player"] }} -- Position {{ recruit["position"] }} -- Year {{ recruit["year"] }}</h5>
+              <h5>{{ recruit["player"] }} -- {{ recruit["position"] }} -- {{ recruit["year"] }}</h5>
             </router-link>
           </div>
           <button>Close</button>
@@ -80,7 +88,7 @@
 
           <div v-for="roster in rosters" :key="roster">
             <router-link v-bind:to="`/roster/${roster.id}`">
-              <h9>{{ roster["name"] }} -- {{ roster["position"] }} -- {{ roster["experience"] }}</h9>
+              <h5>{{ roster["name"] }} -- {{ roster["position"] }} -- {{ roster["experience"] }}</h5>
             </router-link>
           </div>
           <button>Close</button>
@@ -91,13 +99,14 @@
 </template>
 
 <style>
-.schoolshow {
-  background-color: lightblue;
+h5 {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* color: rgb(43, 0, 255); */
+  /* text-align: center; */
 }
 
-h5 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(43, 0, 255);
+.schoolshow {
+  background-color: lightblue;
 }
 </style>
 
@@ -189,7 +198,7 @@ export default {
         .post("/api/recruitinfo", params)
         .then((response) => {
           this.selection = response.data;
-          console.log("Creating a Profile", this.selection);
+          console.log("Adding to Profile", this.selection);
           this.$router.push("/user/" + this.user_id);
         })
         .catch((errors) => console.log(errors.response));
